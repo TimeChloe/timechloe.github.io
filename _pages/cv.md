@@ -9,56 +9,46 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+## Education
+* **M.Sc. in Mechatronics and Robotics & Medical Technology and Assistance Systems**, Technical University of Munich (TUM), 2022–2026 (expected)  
+* **Staatsexamen in Dentistry** (withdrawn), Heidelberg University, 2021–2022  
+* **B.Eng. in Mechanical Engineering**, Shanghai Jiao Tong University (SJTU), 2016–2020  
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+## Work Experience
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* **Intern**, Munich Institute of Robotics and Machine Intelligence (MIRMI), KI.Fabrik  
+  * 02/2024 – Present  
+  * **Robot Teleoperation**: Built a VR-based teleoperation system for dual-arm robots (HTC VIVE & Franka Emika Panda), improved haptic feedback, and developed skill-based control for MIOS  
+  * **Haptic Sensing**: Integrated external force sensing into MIOS, developed object state estimation with visual tactile sensors  
+  * **Other Contributions**: Robot hand-eye calibration, 3D reconstruction, 6D pose estimation, web development  
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* **Intern**, Siemens Healthineers Innovation Center, Shanghai, China  
+  * 10/2023 – 02/2024  
+  * Designed an autonomous mobile base for Digital Radiography (DR)  
+  * Conducted market research on surgical robotics and evaluated collaboration with Siemens imaging  
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+## Scholarships
+* **National Encouragement Scholarship**, China, 2019  
+
+## Teaching Experience
+* **Teaching Assistant**, Technical University of Munich  
+  * Tutor for **Information Technology** (08/2024 – Present)  
+* **Teaching Assistant**, Shanghai Jiao Tong University  
+  * Tutor for **System Modeling, Analysis, and Control** (03/2019 – 07/2019)  
+
+## Volunteering Experience
+* **Ziyang City Yanjiang District Volunteer Association** (2014.09 – 2015.09)  
+  * Participated in various community service activities, such as providing free haircuts for elderly residents in nursing homes.  
+* **Youth Volunteer Team, School of Mechanical Engineering, SJTU** (2016.09 – 2018.08)  
+  * Engaged in multiple public welfare activities, including autism awareness campaigns.  
+* **Dunhuang Mogao Grottoes Exhibition Volunteer, Shanghai Jiao Tong University** (2019.03 – 2019.04)  
+  * Maintained exhibition order and coordinated volunteer shifts.  
+
+## Skills
+* **Programming**: C/C++, Python, MATLAB/Simulink, Java, HTML/CSS/JavaScript, LaTeX  
+* **Languages**: Chinese (native), English (proficient), German (good knowledge)  
+
+## Personal Interests
+* **Hiking**: Favorite region – Hengduan Mountains, Western China  
+* **Fishing & Traveling**: Exploring different parts of the world  
+* **Climbing**
