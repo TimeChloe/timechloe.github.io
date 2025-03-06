@@ -1,86 +1,53 @@
 ---
-title: "Course Project: Programming and Control for Human-Robot Interaction"
-excerpt: " Build a 3-DOF robot in MATLAB/SIMULINK, implementing Kinematics and Dynamics, Joint Control, Collision Detection, Inverse Kinematics Control, Nullspace Optimizations, Full Cartesian Impedance Controller within it. Robot Programming: Implement simulation part in a real robot (KUKA LBR iiwa).<br/><img src='/images/RPCHI_pic.png'>"
+title: "Semester Project: Learning Motion in Manipulation Tasks from Demonstration"
+excerpt: |
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <div style="flex: 1;">
+        I implemented two teleoperation systems (VR to Robots and Sigma.7 to Robots) and introduced a object recognition system, which combines 2D segmentation with depth information for accurate object position estimation. Additionally, vision-based tactile sensors are employed to enhance the robot’s capabilities in contact-rich tasks.
+    </div>
+    <div style="flex: 1;">
+      <img src="/images/tele_fig_setup.png" 
+           alt="some image" 
+           style="width: 60%; height: auto; max-width: 400px;" />
+    </div>
+  </div>
 collection: portfolio
 ---
 
-## Overview
+## Implementation
 
-<div style="display: flex; flex-wrap: wrap;">
-  <!-- Left Column -->
-  <div style="flex: 1; min-width: 200px; margin-right: 1em;">
-    <img 
-      src="/images/RPCHI.gif" 
-      alt="Demonstration of KUKA-LBR Robot Interaction"
-      style="max-width: 100%; height: auto;"
-    />
-  </div>
+### 1. Virtual Reality Based Robot Teleoperation
+This section presents a virtual reality (VR)-based teleoperation system for controlling two Franka Emika Panda robots. The system utilizes an [HTC Vive Pro Kit](https://www.vive.com/us/) as the VR hardware, interfaced with Robot Operating System (ROS). The setup enables intuitive real-time control and demonstration of robotic manipulation tasks.
 
-  <!-- Right Column -->
-  <div style="flex: 2; min-width: 300px;">
-    <p>
-      The lecture covers various aspects of robotic manipulation and human-robot interaction. It begins with theoretical foundations, continues through simulation-based implementation, and concludes with hands-on validation on the KUKA-DLR light-weight robot.
-    </p>
-    <p><strong>Addressed Topics:</strong></p>
-    <ul>
-      <li>Robot modelling and parameter identification</li>
-      <li>Position control</li>
-      <li>Torque control</li>
-      <li>Cartesian impedance control</li>
-      <li>Collision detection</li>
-      <li>Reactive path generation</li>
-      <li>State machines for task programming</li>
-    </ul>
-  </div>
-</div>
+- **VR Interface:** Use HTC Vive controllers to track hand movements.
+- **Control System:** The controller data is mapped to robot end-effectors through SteamVR and OpenVR.
+- **Safety Features:** Includes workspace boundary checking and impedance control for safe interactions.
 
+### 2. Haptic Feedback Teleoperation
+To enhance control accuracy and user experience, a haptic device [sigma.7](https://www.forcedimension.com/products/sigma) was introduced for bilateral teleoperation. Key components include:
 
-## Simulation Report
+- **Haptic Feedback:** Provides real-time force feedback using a Bota Systems SensOne 6D force-torque sensor.
+- **Velocity Control:** Implements relative velocity scaling to map operator movements to the robot end-effector.
+- **Clutch Mechanism:** A foot pedal mechanism enables smooth transitions between tasks.
 
-Below, you can view the Simulation Report directly or download it for local viewing:
+### 3. Object Pose Estimation using Vision-Based Methods
+An object recognition system was developed using [Grounded-SAM](https://github.com/IDEA-Research/Grounded-Segment-Anything), combining 2D segmentation and depth information. The steps include:
 
-<iframe 
-  src="https://onedrive.live.com/?cid=174CFD4941E40667&id=174CFD4941E40667%21sbc137fced0374222924de763fda5bbd7&parId=174CFD4941E40667%21s5158bba5d43b4d07a7f8409e2062ac41&o=OneUp"
-  width="80%"
-  height="480"
-  frameborder="0">
-</iframe>
+- **Object Segmentation:** Uses Grounding DINO for object detection with text prompts.
+- **Depth Processing:** Intel RealSense D435 captures depth information for precise pose estimation.
+- **Data Filtering:** Implements noise reduction using PCA and statistical outlier removal.
 
-[**Download the Simulation Report**](https://onedrive.live.com/?cid=174CFD4941E40667&id=174CFD4941E40667%21sbc137fced0374222924de763fda5bbd7&parId=174CFD4941E40667%21s5158bba5d43b4d07a7f8409e2062ac41&o=OneUp)
+### 4. Vision-Based Tactile Sensing
+To improve performance in contact-rich tasks, the [GelSight Mini](https://www.gelsight.com/gelsightmini/) sensor was employed for high-resolution tactile sensing. This enables the robot to measure:
 
+- Contact forces and object surface geometry
+- Texture recognition for precise grasping
 
-## View the Presentation
+## Semester Project Report
 
-<iframe 
-  src="https://onedrive.live.com/personal/174cfd4941e40667/_layouts/15/Doc.aspx?resid=174CFD4941E40667!s55a3c22f7c80414795389b596f0ce66a&cid=174cfd4941e40667&migratedtospo=true&app=PowerPoint" 
-  width="80%" 
-  height="480" 
-  frameborder="0">
-</iframe>
+Below, you can view the Semester Project Report directly or download it for local viewing:
 
-[**Download the PPT**](https://onedrive.live.com/personal/174cfd4941e40667/_layouts/15/Doc.aspx?resid=174CFD4941E40667!s55a3c22f7c80414795389b596f0ce66a&cid=174cfd4941e40667&migratedtospo=true&app=PowerPoint)
+<iframe src="https://1drv.ms/b/c/174cfd4941e40667/IQTLrrMWhnF2TZ6p8tIug8kwAbDpK3bW3BXCl2OZJsNyiV8"   width="90%" 
+  height="540"  frameborder="0" scrolling="no"></iframe>
 
-
-<!-- ---
-title: "Portfolio: Presentation Showcase"
-excerpt: "A quick look at my recent PowerPoint presentation. <br/><img src='/images/500x300.png'>"
-collection: portfolio
-layout: single
----
-
-## Overview
-
-This presentation covers the key insights from my latest project. Below, you can either view it in the embedded window or download it directly.
-
-## View the Presentation
-
-<iframe 
-  src="https://onedrive.live.com/personal/174cfd4941e40667/_layouts/15/Doc.aspx?resid=174CFD4941E40667!s55a3c22f7c80414795389b596f0ce66a&cid=174cfd4941e40667&migratedtospo=true&app=PowerPoint" 
-  width="100%" 
-  height="600" 
-  frameborder="0">
-</iframe>
-
-[**Download the PPT**](https://onedrive.live.com/personal/174cfd4941e40667/_layouts/15/Doc.aspx?resid=174CFD4941E40667!s55a3c22f7c80414795389b596f0ce66a&cid=174cfd4941e40667&migratedtospo=true&app=PowerPoint)
-
-> **Tip:** If the embedded viewer doesn’t load, try opening the link above in a new tab or download the file to view it locally. -->
+[**Download the Semester Project Report**](https://onedrive.live.com/?cid=174CFD4941E40667&id=174CFD4941E40667%21s16b3aecb71864d769ea9f2d22e83c930&parId=174CFD4941E40667%21s5158bba5d43b4d07a7f8409e2062ac41&o=OneUp)
