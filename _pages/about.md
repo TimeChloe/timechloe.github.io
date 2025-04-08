@@ -20,3 +20,14 @@ You can find my CV here: [Yue's Curriculum Vitae](../files/2Yue_CV.pdf).
 
 ## News  
 * <i class="fas fa-trophy" style="color: gold;"></i> **January 29, 2025** – My master’s semester thesis work, **"Learning Task Planning from Multi-Modal Demonstration for Multi-Stage Contact-Rich Manipulation"**, has been accepted at **IEEE International Conference on Robotics and Automation (ICRA) 2025**. 
+
+## Personal Interests  
+My personal hobby is **hiking**, **traveling** and **climbing**  ⛰️. 
+In 2025, my planned hikes include:  
+- 🏜️ **Mauritania Desert Train Adventure** (03.June – 11.June)  
+- ❄️ **Icelandic Highlands** (10.July – 14.July)  
+- 🧗‍♀️ **Dolomites Via Ferrata** (Early August)  
+- 🏞️ **Tour du Mont Blanc** (Late August)  
+- 🧗‍♂️ **Chamonix Alpine Climbing** (Early September)
+
+If you are also interested in these adventures, feel free to contact me! 📩
