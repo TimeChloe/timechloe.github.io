@@ -1,5 +1,5 @@
 ---
-title: "Hiwi (Student Assistant Researcher)"
+title: "Hiwi (Student Assistant Researcher) in KI Fabrik"
 excerpt: |
   <div style="display: flex; align-items: center; gap: 1rem;">
     <div style="flex: 1;">

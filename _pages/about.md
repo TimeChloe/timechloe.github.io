@@ -24,15 +24,20 @@ You can find my CV here: [Yue's Curriculum Vitae](../files/2Yue_CV.pdf).
 * <i class="fas fa-trophy" style="color: gold;"></i> **June 21, 2025** – Our work on **"Multi-Robot Deformable Linear Object Assembly with Multi-Modal Perception"**, which I contributed to as a student research assistant, has been accepted at **IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) 2025**.
 * <i class="fas fa-trophy" style="color: gold;"></i> **January 29, 2025** – My master’s semester thesis work, **"Learning Task Planning from Multi-Modal Demonstration for Multi-Stage Contact-Rich Manipulation"**, has been accepted at **IEEE International Conference on Robotics and Automation (ICRA) 2025**. 
 
-## Personal Interests  
-My personal hobby is **hiking**, **traveling** and **climbing**  ⛰️. 
+## Personal Interests
 
-In June 2025, I completed the 🏜️ **Mauritania Desert Train Adventure**, which was an incredibly exciting and unforgettable experience.  
+**Alpine Climbing, Backpack Hiking, and Global Adventure Travel** ⛰️
 
-My upcoming hikes include:  
-- ❄️ **Icelandic Highlands** (09.July – 14.July)  
-- 🧗‍♀️ **Dolomites Via Ferrata** (Early August)  
-- 🏞️ **Tour du Mont Blanc** (Late August)  
-- 🧗‍♂️ **Chamonix Alpine Climbing** (Early September)
+**Completed in 2025**
 
-If you are also interested in these adventures, feel free to contact me! 📩
+* 🏜️ **Mauritania Desert Train Adventure** (June 2025)
+* ❄️ **Icelandic Highlands** — backpacking (July 2025)
+* 🏞️ **Tour du Mont Blanc** — backpacking (August 2025)
+* 🧗‍♂️ **Chamonix Alpine Climbing Training**; Italy **multipitch training** (September 2025)
+
+**Planned (by end of 2025)**
+
+* 🇳🇵 **Nepal EBC(Everest Base Camp)** — Backpacking
+* 🧊 **Ice Peak 6,189 m** — Mountaineering
+
+I look forward to connecting with diverse partners for upcoming trips. If these adventures resonate with you, please get in touch. 📩
