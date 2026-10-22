@@ -12,7 +12,7 @@ site_theme               : "default"
 title                    : "Yue Zhang"
 title_separator          : "-"
 name                     : &name "Yue Zhang"
-description              : &description "personal description"
+description              : &description "Yue Zhang, Ph.D. candidate in robotics at the Technical University of Munich (TUM), working on safe physical human-robot interaction."
 url                      : https://timechloe.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "TimeChloe/timechloe.github.io"
@@ -22,18 +22,18 @@ repository               : "TimeChloe/timechloe.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.jpg"
   name             : "Yue Zhang"
   pronouns         : # example: "she/her"  
-  bio              : "Master Student in Robotics at TUM"
-  location         : "Munich, Germany"
+  bio              : "Ph.D. Candidate, Cyber-Physical Systems Group, TUM"
+  location         : "Garching, Germany"
   employer         : "Technical University of Munich"
   uri              : https://timechloe.github.io/
   email            : "yue22.zhang@tum.de" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?hl=zh-CN&user=A6MicwgAAAAJ&view_op=list_works&gmla=AOv-ny9L2pkIq517wXin3eCr-xAL44xR033FmIr-hfIgm-bUqs2iPDO9ITw2gQ6blyyk8a4-l5J09hKqHKriINHlrNd2BfCjByTnoTPAcwleTCXlgTSGZNpjfJZgPCQIuw"
+  googlescholar    : "https://scholar.google.com/citations?user=A6MicwgAAAAJ"
   impactstory      : # URL
   # orcid            : "http://orcid.org/yourorcidurl"
   semantic         : # URL
@@ -90,7 +90,6 @@ breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
 future                   : false
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
-talkmap_link             : false      #change to true to add link to talkmap on talks page
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
@@ -101,24 +100,8 @@ comments:
     appid                :
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
-staticman:
-  allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "gh-pages" # "master", "gh-pages"
-  commitMessage          : "New comment."
-  filename               : comment-{@timestamp}
-  format                 : "yml"
-  moderation             : true
-  path                   : "_data/comments/{options.slug}"
-  requiredFields         : ['name', 'email', 'message']
-  transforms:
-    email                : "md5"
-  generatedFields:
-    date:
-      type               : "date"
-      options:
-        format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
-  hide                   : false     # change to true to hide the RSS feed in the footer
+  hide                   : true      # no blog posts, so the RSS feed link is hidden
   path                   : # blank (default) uses feed.xml
 
 
@@ -172,6 +155,8 @@ exclude:
   - Capfile
   - config
   - Dockerfile
+  - docker-compose.yaml
+  - _config_docker.yml
   - Gemfile
   - Gruntfile.js
   - gulpfile.js
@@ -179,9 +164,9 @@ exclude:
   - local
   - log
   - node_modules
-  - package.json*
   - Rakefile
   - README
+  - README.md
   - tmp
   - vendor
 keep_files:
@@ -213,33 +198,16 @@ kramdown:
 
 # These settings control the types of collections used by the template
 collections:
-  teaching:
-    output: true
-    permalink: /:collection/:path/
   publications:
     output: true
     permalink: /:collection/:path/
   portfolio:
     output: true
     permalink: /:collection/:path/
-  talks:
-    output: true
-    permalink: /:collection/:path/
 
 
 # These settings control how pages and collections are included in the site
 defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
   # _pages
   - scope:
       path: ""
@@ -247,15 +215,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _teaching
-  - scope:
-      path: ""
-      type: teaching
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
   # _publications
   - scope:
       path: ""
@@ -274,14 +233,6 @@ defaults:
       author_profile: true
       share: true
       comment: true
-  # _talks
-  - scope:
-      path: ""
-      type: talks
-    values:
-      layout: talk
-      author_profile: true
-      share: true
 
 
 # Sass/SCSS

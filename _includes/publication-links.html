@@ -1,0 +1,14 @@
+{% comment %}
+  Link row for a publication, e.g. "Paper | arXiv | Project page".
+  Each link appears only if its field is set in the publication's front matter:
+  paperurl, arxivurl, projecturl, codeurl, videourl, slidesurl.
+{% endcomment %}
+{% assign pub = include.pub %}
+{% assign links = "" | split: "" %}
+{% if pub.paperurl %}{% capture l %}<a href="{{ pub.paperurl }}">Paper</a>{% endcapture %}{% assign links = links | push: l %}{% endif %}
+{% if pub.arxivurl %}{% capture l %}<a href="{{ pub.arxivurl }}">arXiv</a>{% endcapture %}{% assign links = links | push: l %}{% endif %}
+{% if pub.projecturl %}{% capture l %}<a href="{{ pub.projecturl }}">Project page</a>{% endcapture %}{% assign links = links | push: l %}{% endif %}
+{% if pub.codeurl %}{% capture l %}<a href="{{ pub.codeurl }}">Code</a>{% endcapture %}{% assign links = links | push: l %}{% endif %}
+{% if pub.videourl %}{% capture l %}<a href="{{ pub.videourl }}">Video</a>{% endcapture %}{% assign links = links | push: l %}{% endif %}
+{% if pub.slidesurl %}{% capture l %}<a href="{{ pub.slidesurl }}">Slides</a>{% endcapture %}{% assign links = links | push: l %}{% endif %}
+{% if links.size > 0 %}<p>{{ links | join: " | " }}</p>{% endif %}

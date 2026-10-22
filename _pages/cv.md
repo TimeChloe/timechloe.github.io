@@ -10,15 +10,28 @@ redirect_from:
 {% include base_path %}
 
 ## Education <i class="fa fa-graduation-cap" style="color:#3498db;"></i>
-* **M.Sc. in Mechatronics and Robotics & Medical Technology and Assistance Systems**, Technical University of Munich (TUM), 2022–2026 (expected)  
+* **Ph.D. Candidate**, Cyber-Physical Systems Group, Technical University of Munich (TUM), 03/2026 – Present  
+  * Supervisor: Prof. Dr.-Ing. Matthias Althoff  
+  * Research focus: safe physical human-robot interaction  
+* **M.Sc. in Mechatronics and Robotics & Medical Technology and Assistance Systems**, Technical University of Munich (TUM), 2022–2025  
+  * Master's thesis at the Chair of Robotics, Artificial Intelligence and Real-Time Systems (AIR), advised by Kejia Chen  
 * **Staatsexamen in Dentistry** (withdrawn), Heidelberg University, 2021–2022  
 * **B.Eng. in Mechanical Engineering**, Shanghai Jiao Tong University (SJTU), 2016–2020  
 
 ---
 
-## Work Experience <i class="fa fa-briefcase" style="color:#e67e22;"></i>
-* **Intern**, Munich Institute of Robotics and Machine Intelligence (MIRMI), KI.Fabrik  
-  * 02/2024 – Present  
+## Publications <i class="fa fa-file-alt" style="color:#34495e;"></i>
+* T. Cheng, K. Chen, L. Chen, L. Zhang, **Y. Zhang**, Y. Ling, M. Hamad, Z. Bing, F. Wu, K. Sharma, A. Knoll, "[TacUMI: A Multi-Modal Universal Manipulation Interface for Contact-Rich Tasks](https://arxiv.org/abs/2601.14550)," *IEEE International Conference on Robotics and Automation (ICRA)*, 2026.  
+* K. Chen, C. Dettmering, F. Pachler, Z. Liu, **Y. Zhang**, T. Cheng, J. Dirr, Z. Bing, A. Knoll, R. Daub, "[Multi-Robot Assembly of Deformable Linear Objects Using Multi-Modal Perception](https://ieeexplore.ieee.org/document/11246285)," *IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)*, 2025.  
+* K. Chen, Z. Shen, **Y. Zhang**, L. Chen, F. Wu, Z. Bing, S. Haddadin, A. Knoll, "[LEMMo-Plan: LLM-Enhanced Learning from Multi-Modal Demonstration for Planning Sequential Contact-Rich Manipulation Tasks](https://ieeexplore.ieee.org/document/11127842)," *IEEE International Conference on Robotics and Automation (ICRA)*, 2025.  
+
+---
+
+## Research and Work Experience <i class="fa fa-briefcase" style="color:#e67e22;"></i>
+* **Student Research Assistant**, Chair of Cyber-Physical Systems, TUM  
+  * 2025  
+* **Student Research Assistant and Semester Thesis**, Munich Institute of Robotics and Machine Intelligence (MIRMI), KI.Fabrik  
+  * 02/2024 – 2025  
   * **Robot Teleoperation**: Built a VR-based teleoperation system for dual-arm robots (HTC VIVE & Franka Emika Panda), improved haptic feedback, and developed skill-based control for MIOS  
   * **Haptic Sensing**: Integrated external force sensing into MIOS, developed object state estimation with visual tactile sensors  
   * **Other Contributions**: Robot hand-eye calibration, 3D reconstruction, 6D pose estimation, web development  
@@ -36,8 +49,12 @@ redirect_from:
 ---
 
 ## Teaching Experience <i class="fa fa-chalkboard-teacher" style="color:#2ecc71;"></i>
-* **Teaching Assistant**, Technical University of Munich  
-  * Tutor for **Information Technology** (08/2024 – Present)  
+* **Teaching Assistant**, Cyber-Physical Systems Group, Technical University of Munich  
+  * Practical course **Safe Reinforcement Learning for Modular Robots** (IN2106, IN4386), Summer 2026  
+  * Master's practical course **Building a BBQ Robot** (IN2106, IN40019), Summer 2026  
+  * Supervising master's and semester theses on safe physical human-robot interaction  
+* **Tutor**, Technical University of Munich  
+  * Tutor for **Information Technology** (from 08/2024)  
 * **Teaching Assistant**, Shanghai Jiao Tong University  
   * Tutor for **System Modeling, Analysis, and Control** (03/2019 – 07/2019)  
 

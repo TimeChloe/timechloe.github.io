@@ -1,89 +1,83 @@
-# Academic Pages
-**Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
+# timechloe.github.io
 
-![Academic Pages template example](images/homepage.png "Academic Pages template example")
+Source of Yue Zhang's personal website: <https://timechloe.github.io>
 
-# Getting Started
+Built with [Jekyll](https://jekyllrb.com/) on the [Academic Pages](https://github.com/academicpages/academicpages.github.io) template. GitHub Pages rebuilds and publishes the site automatically whenever the `master` branch changes.
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+## Where things live
 
-See more info at https://academicpages.github.io/
+| What you want to change | File or folder |
+| --- | --- |
+| Name, sidebar bio, location, email, profile photo, social links | `_config.yml` (the `author:` block) |
+| Home page (About Me, News, Personal Interests) | `_pages/about.md` |
+| CV page | `_pages/cv.md` |
+| CV PDF linked from the home page | `files/2Yue_CV.pdf` |
+| Publications (one file per paper) | `_publications/` |
+| Projects (one file per project) | `_portfolio/` |
+| Menu at the top of the page | `_data/navigation.yml` |
+| Images and PDFs | `images/` and `files/` |
 
-## Running locally
+Everything else (`_layouts/`, `_includes/`, `_sass/`, `assets/`) is the theme. You normally don't need to touch it.
 
-When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
+## Common edits
 
-1. Clone the repository and made updates as detailed above.
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distribution and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    If you see error `Unable to locate package ruby-bundler`, `Unable to locate package nodejs `, run the following:
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-    then try run `sudo apt install ruby-dev ruby-bundler nodejs` again.
+**Add a news item.** Open `_pages/about.md` and add a line at the top of the `## News` list.
 
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
+**Add a publication.** Copy one of the files in `_publications/`, rename it (e.g. `2027-icra-my-paper.md`), and edit the front matter:
 
-    If you see file permission error like `Fetching bundler-2.6.3.gem ERROR:  While executing gem (Gem::FilePermissionError) You don't have write permissions for the /var/lib/gems/3.2.0 directory.` or `Bundler::PermissionError: There was an error while trying to write to /usr/local/bin.`
-    Install Gems Locally (Recommended):
-    ```bash
-    bundle config set --local path 'vendor/bundle'
-    ```
-    then try run `bundle install` again. If succeeded, you should see a folder called `vendor` and open `.gitignore` then add `vendor` inside it.
+```yaml
+---
+title: "Paper title"
+collection: publications
+category: conferences                  # section heading, defined under publication_category in _config.yml
+permalink: /publication/2027-icra-my-paper
+date: 2027-01-15                       # controls the order, newest first
+venue: 'IEEE International Conference on Robotics and Automation (ICRA 2027)'
+authors: 'First Author, <b>Yue Zhang</b>, Last Author'
+paperurl: 'https://ieeexplore.ieee.org/document/...'   # optional
+arxivurl: 'https://arxiv.org/abs/...'                  # optional
+projecturl: 'https://...'                              # optional
+codeurl: 'https://github.com/...'                      # optional
+# status: submitted                    # uncomment while under review
+---
 
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
-    You may also try `bundle exec jekyll serve -l -H localhost` to ensure jekyll to use specific dependencies on your own local machine.
+Abstract goes here (shown on the paper's own page).
+```
 
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
+For a journal paper, use `category: manuscripts` and uncomment the `manuscripts` entry under `publication_category` in `_config.yml`.
 
-## Using Docker
+**Add a project.** Copy a file in `_portfolio/`, change `title`, `excerpt` (the summary on the Projects page) and the body, and set `order:` to choose its position on the page.
 
-Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
+**Change the photo.** Put the new image in `images/` and set `avatar:` in `_config.yml`. Keep images small (under ~500 KB) so the site loads quickly.
 
-You can build and execute the container by running the following command in the repository:
+**Replace the CV PDF.** Overwrite `files/2Yue_CV.pdf` with the new file, keeping the same name.
+
+## Preview locally
+
+You need Docker (already installed on this laptop). From the repository folder:
 
 ```bash
 docker compose up
 ```
 
-You should now be able to access the website from `localhost:4000`.
+Then open <http://localhost:4000>. Pages rebuild automatically when you save a file; refresh the browser to see the change. If you edit `_config.yml`, stop the server with `Ctrl+C` and run `docker compose up` again. The first run builds the image, which takes a few minutes; later runs start in seconds.
 
-# Maintenance
+Without Docker, install Ruby and Bundler, then run `bundle install` once and `bundle exec jekyll serve -l -H localhost` to preview.
 
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
+## Publish
 
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
+Commit and push to `master`; GitHub Pages rebuilds the live site within a minute or two.
 
-## Bugfixes and enhancements
+```bash
+git add -A
+git commit -m "Describe what you changed"
+git push
+```
 
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
+You can watch the build under the repository's **Actions** tab on GitHub. If a build fails, the error there names the file and line to fix.
 
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
+To try a bigger change without touching the live site, work on a branch (`git switch -c my-change`), push it, and open a pull request; the site only updates once it is merged into `master`.
 
----
-<div align="center">
-    
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/academicpages/academicpages.github.io.svg)](https://github.com/academicpages/academicpages.github.io/graphs/contributors)
-[![GitHub release](https://img.shields.io/github/v/release/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/academicpages/academicpages.github.io?color=blue)](https://github.com/academicpages/academicpages.github.io/blob/master/LICENSE)
+## License
 
-[![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
-[![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
-</div>
+The theme is released under the MIT License (see `LICENSE`), originally from [Academic Pages](https://github.com/academicpages/academicpages.github.io) and [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes).
