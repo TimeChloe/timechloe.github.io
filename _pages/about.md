@@ -29,11 +29,12 @@ I supervise master's theses, semester theses, IDPs, and guided research projects
 
 **Alpine Climbing, Backpack Hiking, and Global Adventure Travel** ⛰️
 
-**Completed in 2025**
+**2026**
 
-* 🏜️ **Mauritania Desert Train Adventure** (June 2025)
-* ❄️ **Icelandic Highlands** — backpacking (July 2025)
-* 🏞️ **Tour du Mont Blanc** — backpacking (August 2025)
-* 🧗‍♂️ **Chamonix Alpine Climbing Training**; Italy **multipitch training** (September 2025)
+* 🏔️ **Chamonix** — a week of mountaineering (June 2026)
+* 🧊 **Arctic Circle Trail, Greenland** — backpacking (August 2026)
+* 🇮🇶 **Iraq** — upcoming trip (November 2026)
+
+**2025:** Mauritania desert train, Icelandic Highlands, Tour du Mont Blanc, and alpine climbing and multipitch training in Chamonix and Italy.
 
 I look forward to connecting with diverse partners for upcoming trips. If these adventures resonate with you, please get in touch. 📩
