@@ -9,7 +9,9 @@ Built with [Jekyll](https://jekyllrb.com/) on the [Academic Pages](https://githu
 | What you want to change | File or folder |
 | --- | --- |
 | Name, sidebar bio, location, email, profile photo, social links | `_config.yml` (the `author:` block) |
-| Home page (About Me, News, Personal Interests) | `_pages/about.md` |
+| Home page (About Me, Student Theses, News) | `_pages/about.md` |
+| Personal Interests page (climbing, hiking, trips) | `_pages/interests.md` |
+| Travel logs (one file per trip, listed on Personal Interests) | `_travel/` |
 | CV page | `_pages/cv.md` |
 | Publications (one file per paper) | `_publications/` |
 | Projects (one file per project) | `_portfolio/` |
@@ -44,6 +46,22 @@ Abstract goes here (shown on the paper's own page).
 ```
 
 For a journal paper, use `category: manuscripts` and uncomment the `manuscripts` entry under `publication_category` in `_config.yml`.
+
+**Add a travel log.** Create a file in `_travel/`, e.g. `_travel/2026-08-arctic-circle-trail.md`:
+
+```markdown
+---
+title: "Arctic Circle Trail, Greenland"
+date: 2026-08-20          # controls the order on the Personal Interests page, newest first
+---
+
+The first paragraph is the short summary shown in the list.
+
+Write the rest of the story here. Add photos with
+![Camp on day 3](/images/travel/act-day3.jpg)
+```
+
+Put the photos in `images/travel/` and keep each one under ~500 KB. The log appears under "Travel Logs" on the Personal Interests page and gets its own page at `/travel/<file-name>/`. A log dated in the future stays hidden until that date.
 
 **Add a project.** Copy a file in `_portfolio/`, change `title`, `excerpt` (the summary on the Projects page) and the body, and set `order:` to choose its position on the page.
 

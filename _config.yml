@@ -204,6 +204,9 @@ collections:
   portfolio:
     output: true
     permalink: /:collection/:path/
+  travel:
+    output: true
+    permalink: /:collection/:path/
 
 
 # These settings control how pages and collections are included in the site
@@ -233,6 +236,14 @@ defaults:
       author_profile: true
       share: true
       comment: true
+  # _travel (travel logs, listed on the Personal Interests page)
+  - scope:
+      path: ""
+      type: travel
+    values:
+      layout: single
+      author_profile: true
+      share: true
 
 
 # Sass/SCSS
