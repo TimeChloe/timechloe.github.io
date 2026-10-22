@@ -2,70 +2,73 @@
 
 Source of Yue Zhang's personal website: <https://timechloe.github.io>
 
-Built with [Jekyll](https://jekyllrb.com/) on the [Academic Pages](https://github.com/academicpages/academicpages.github.io) template. GitHub Pages rebuilds and publishes the site automatically whenever the `master` branch changes.
+A small, hand-written [Jekyll](https://jekyllrb.com/) site in the style of the [al-folio](https://github.com/alshedivat/al-folio) theme. GitHub Pages rebuilds and publishes it automatically whenever the `master` branch changes.
 
 ## Where things live
 
-| What you want to change | File or folder |
+| What you want to change | File |
 | --- | --- |
-| Name, sidebar bio, location, email, profile photo, social links | `_config.yml` (the `author:` block) |
-| Home page (About Me, Student Theses, News) | `_pages/about.md` |
-| Personal Interests page (climbing, hiking, trips) | `_pages/interests.md` |
-| Travel logs (one file per trip, listed on Personal Interests) | `_travel/` |
-| CV page | `_pages/cv.md` |
-| Publications (one file per paper) | `_publications/` |
-| Projects (one file per project) | `_portfolio/` |
-| Menu at the top of the page | `_data/navigation.yml` |
-| Images | `images/` (put any PDFs you want to link in `files/`) |
+| Name, email, photo, Google Scholar / GitHub / LinkedIn links | `_config.yml` (the `author:` block) |
+| About text on the home page | `_pages/about.md` |
+| Papers (home page and publications page) | `_data/publications.yml` |
+| News on the home page | `_data/news.yml` |
+| Trips: world map pins and the lists on personal interests | `_data/trips.yml` |
+| Travel logs (one file per trip) | `_travel/` |
+| CV | `files/cv.pdf` (see below) |
+| Top menu | `_data/navigation.yml` |
+| Photos and images | `images/` |
+| Colours, fonts, spacing | `assets/css/main.css` |
 
-Everything else (`_layouts/`, `_includes/`, `_sass/`, `assets/`) is the theme. You normally don't need to touch it.
+The page templates are in `_layouts/` and `_includes/`. You normally don't need to touch them.
 
 ## Common edits
 
-**Add a news item.** Open `_pages/about.md` and add a line at the top of the `## News` list.
-
-**Add a publication.** Copy one of the files in `_publications/`, rename it (e.g. `2027-icra-my-paper.md`), and edit the front matter:
+**Add a news item.** Add an entry at the top of `_data/news.yml`:
 
 ```yaml
----
-title: "Paper title"
-collection: publications
-category: conferences                  # section heading, defined under publication_category in _config.yml
-permalink: /publication/2027-icra-my-paper
-date: 2027-01-15                       # controls the order, newest first
-venue: 'IEEE International Conference on Robotics and Automation (ICRA 2027)'
-authors: 'First Author, <b>Yue Zhang</b>, Last Author'
-paperurl: 'https://ieeexplore.ieee.org/document/...'   # optional
-arxivurl: 'https://arxiv.org/abs/...'                  # optional
-projecturl: 'https://...'                              # optional
-codeurl: 'https://github.com/...'                      # optional
-# status: submitted                    # uncomment while under review
----
-
-Abstract goes here (shown on the paper's own page).
+- date: Nov 2026
+  text: Gave a talk at [Some Workshop](https://example.com).
 ```
 
-For a journal paper, use `category: manuscripts` and uncomment the `manuscripts` entry under `publication_category` in `_config.yml`.
+**Add a paper.** Add an entry at the top of `_data/publications.yml`. The comment at the top of that file lists every field. Set `selected: true` to also show it on the home page, and add `image: /images/publications/my-paper.jpg` for a preview picture next to the badge.
 
-**Add a travel log.** Create a file in `_travel/`, e.g. `_travel/2026-08-arctic-circle-trail.md`:
+**Upload your CV.** Save the PDF as `files/cv.pdf`. The cv page then shows it with a download button. Until the file exists, the page says the CV is coming soon.
+
+**Add a place to the world map.** Add an entry to `_data/trips.yml`:
+
+```yaml
+- name: Arctic Circle Trail, Greenland
+  activity: backpacking
+  date: August 2026
+  year: 2026                 # list heading; use "regularly" for places you go all the time
+  emoji: 🧊
+  lat: 66.98                 # right-click a spot in Google Maps to copy its coordinates
+  lng: -52.10
+  insight: A few sentences about the trip, shown when someone clicks the pin.
+  photos: [/images/travel/act-1.jpg, /images/travel/act-2.jpg]
+  log: /travel/arctic-circle-trail/   # optional, link to a longer travel log
+```
+
+The same entry becomes a pin on the map (clicking it shows the date, insight and photos) and a line in the list below the map. Add `status: planned` for an upcoming trip; it is drawn as a hollow pin. Trips with the same coordinates share one pin.
+
+Put trip photos in `images/travel/` and keep each one under ~500 KB (resize to about 1200 px wide) so the page loads quickly.
+
+**Write a travel log.** Create a file in `_travel/`, for example `_travel/arctic-circle-trail.md`:
 
 ```markdown
 ---
 title: "Arctic Circle Trail, Greenland"
-date: 2026-08-20          # controls the order on the Personal Interests page, newest first
+date: 2026-08-20
+place: Kangerlussuaq to Sisimiut
 ---
 
-The first paragraph is the short summary shown in the list.
+The first paragraph is the summary shown on the personal interests page.
 
-Write the rest of the story here. Add photos with
+Write the rest of the story here, with photos:
 ![Camp on day 3](/images/travel/act-day3.jpg)
 ```
 
-Put the photos in `images/travel/` and keep each one under ~500 KB. The log appears under "Travel Logs" on the Personal Interests page and gets its own page at `/travel/<file-name>/`. A log dated in the future stays hidden until that date.
-
-**Add a project.** Copy a file in `_portfolio/`, change `title`, `excerpt` (the summary on the Projects page) and the body, and set `order:` to choose its position on the page.
-
-**Change the photo.** Put the new image in `images/` and set `avatar:` in `_config.yml`. Keep images small (under ~500 KB) so the site loads quickly.
+It appears under "travel logs" on the personal interests page and gets its own page at `/travel/arctic-circle-trail/`. Link it from the map by setting `log: /travel/arctic-circle-trail/` on the trip. A log dated in the future stays hidden until that date.
 
 ## Preview locally
 
@@ -75,9 +78,7 @@ You need Docker (already installed on this laptop). From the repository folder:
 docker compose up
 ```
 
-Then open <http://localhost:4000>. Pages rebuild automatically when you save a file; refresh the browser to see the change. If you edit `_config.yml`, stop the server with `Ctrl+C` and run `docker compose up` again. The first run builds the image, which takes a few minutes; later runs start in seconds.
-
-Without Docker, install Ruby and Bundler, then run `bundle install` once and `bundle exec jekyll serve -l -H localhost` to preview.
+Then open <http://localhost:4000>. Pages rebuild when you save a file; refresh the browser to see the change. After editing `_config.yml`, stop the server with `Ctrl+C` and start it again. The first run builds the Docker image, which takes a few minutes.
 
 ## Publish
 
@@ -89,10 +90,8 @@ git commit -m "Describe what you changed"
 git push
 ```
 
-You can watch the build under the repository's **Actions** tab on GitHub. If a build fails, the error there names the file and line to fix.
+You can watch the build under the repository's **Actions** tab on GitHub. If it fails, the error names the file and line to fix (most often a YAML indentation mistake in `_data/`).
 
-To try a bigger change without touching the live site, work on a branch (`git switch -c my-change`), push it, and open a pull request; the site only updates once it is merged into `master`.
+## Credits
 
-## License
-
-The theme is released under the MIT License (see `LICENSE`), originally from [Academic Pages](https://github.com/academicpages/academicpages.github.io) and [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes).
+Design inspired by [al-folio](https://github.com/alshedivat/al-folio). Map by [Leaflet](https://leafletjs.com/) with [OpenStreetMap](https://www.openstreetmap.org/copyright) tiles.

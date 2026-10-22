@@ -1,0 +1,81 @@
+# Publications, newest first.
+#
+#   title:     paper title
+#   authors:   author list; your name (scholar_name in _config.yml) is underlined automatically
+#   venue:     full venue name, shown in italics
+#   abbr:      short label for the coloured badge, e.g. ICRA, IROS, RA-L
+#   year:      publication year; the publications page groups papers by year
+#   selected:  true to also show the paper on the home page
+#   image:     optional preview picture, e.g. /images/publications/tacumi.jpg
+#   links:     any of arxiv, paper, pdf, project, code, video, slides
+#   abstract:  shown when a visitor clicks "ABS"
+
+- title: "TacUMI: A Multi-Modal Universal Manipulation Interface for Contact-Rich Tasks"
+  authors: Tailai Cheng, Kejia Chen, Lingyun Chen, Liding Zhang, Yue Zhang, Yao Ling, Mahdi Hamad, Zhenshan Bing, Fan Wu, Karan Sharma, Alois Knoll
+  venue: IEEE International Conference on Robotics and Automation (ICRA)
+  abbr: ICRA
+  year: 2026
+  selected: true
+  links:
+    arxiv: https://arxiv.org/abs/2601.14550
+  abstract: >-
+    Task decomposition is critical for understanding and learning complex long-horizon manipulation tasks.
+    Especially for tasks involving rich physical interactions, relying solely on visual observations and robot
+    proprioceptive information often fails to reveal the underlying event transitions. This raises the requirement
+    for efficient collection of high-quality multi-modal data as well as robust segmentation method to decompose
+    demonstrations into meaningful modules. Building on the idea of the handheld demonstration device Universal
+    Manipulation Interface (UMI), we introduce TacUMI, a multi-modal data collection system that integrates
+    additionally ViTac sensors, force-torque sensor, and pose tracker into a compact, robot-compatible gripper
+    design, which enables synchronized acquisition of all these modalities during human demonstrations. We then
+    propose a multi-modal segmentation framework that leverages temporal models to detect semantically meaningful
+    event boundaries in sequential manipulations. Evaluation on a challenging cable mounting task shows more than
+    90 percent segmentation accuracy and highlights a remarkable improvement with more modalities, which validates
+    that TacUMI establishes a practical foundation for both scalable collection and segmentation of multi-modal
+    demonstrations in contact-rich tasks.
+
+- title: "Multi-Robot Assembly of Deformable Linear Objects Using Multi-Modal Perception"
+  authors: Kejia Chen, Celina Dettmering, Florian Pachler, Zhuo Liu, Yue Zhang, Tailai Cheng, Jonas Dirr, Zhenshan Bing, Alois Knoll, Rüdiger Daub
+  venue: IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)
+  abbr: IROS
+  year: 2025
+  selected: true
+  links:
+    arxiv: https://arxiv.org/abs/2506.22034
+    paper: https://ieeexplore.ieee.org/document/11246285
+  abstract: >-
+    Industrial assembly of deformable linear objects (DLOs) such as cables offers great potential for many
+    industries. However, DLOs pose several challenges for robot-based automation due to the inherent complexity of
+    deformation and, consequentially, the difficulties in anticipating the behavior of DLOs in dynamic situations.
+    Although existing studies have addressed isolated subproblems like shape tracking, grasping, and shape control,
+    there has been limited exploration of integrated workflows that combine these individual processes. To address
+    this gap, we propose an object-centric perception and planning framework to achieve a comprehensive DLO
+    assembly process throughout the industrial value chain. The framework utilizes visual and tactile information
+    to track the DLO's shape as well as contact state across different stages, which facilitates effective
+    planning of robot actions. Our approach encompasses robot-based bin picking of DLOs from cluttered
+    environments, followed by a coordinated handover to two additional robots that mount the DLOs onto designated
+    fixtures. Real-world experiments employing a setup with multiple robots demonstrate the effectiveness of the
+    approach and its relevance to industrial scenarios.
+
+- title: "LEMMo-Plan: LLM-Enhanced Learning from Multi-Modal Demonstration for Planning Sequential Contact-Rich Manipulation Tasks"
+  authors: Kejia Chen, Zheng Shen, Yue Zhang, Lingyun Chen, Fan Wu, Zhenshan Bing, Sami Haddadin, Alois Knoll
+  venue: IEEE International Conference on Robotics and Automation (ICRA)
+  abbr: ICRA
+  year: 2025
+  selected: true
+  links:
+    arxiv: https://arxiv.org/abs/2409.11863
+    paper: https://ieeexplore.ieee.org/document/11127842
+    project: https://lemmo-plan.github.io/LEMMo-Plan/
+  abstract: >-
+    Large Language Models (LLMs) have gained popularity in task planning for long-horizon manipulation tasks. To
+    enhance the validity of LLM-generated plans, visual demonstrations and online videos have been widely employed
+    to guide the planning process. However, for manipulation tasks involving subtle movements but rich contact
+    interactions, visual perception alone may be insufficient for the LLM to fully interpret the demonstration.
+    Additionally, visual data provides limited information on force-related parameters and conditions, which are
+    crucial for effective execution on real robots. In this paper, we introduce an in-context learning framework
+    that incorporates tactile and force-torque information from human demonstrations to enhance LLMs' ability to
+    generate plans for new task scenarios. We propose a bootstrapped reasoning pipeline that sequentially
+    integrates each modality into a comprehensive task plan. This task plan is then used as a reference for
+    planning in new task configurations. Real-world experiments on two different sequential manipulation tasks
+    demonstrate the effectiveness of our framework in improving LLMs' understanding of multi-modal demonstrations
+    and enhancing the overall planning performance.

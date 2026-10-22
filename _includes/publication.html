@@ -1,0 +1,19 @@
+{% comment %}One paper from _data/publications.yml, in the style of a publication card.{% endcomment %}
+{% assign pub = include.pub %}
+{% capture me %}<em>{{ site.scholar_name }}</em>{% endcapture %}
+<li class="pub">
+  <div class="pub-side">
+    {% if pub.abbr %}<abbr class="badge" title="{{ pub.venue }}">{{ pub.abbr }}</abbr>{% endif %}
+    {% if pub.image %}<img class="preview" src="{{ pub.image | relative_url }}" alt="" loading="lazy">{% endif %}
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">{{ pub.title }}</div>
+    <div class="pub-authors">{{ pub.authors | replace: site.scholar_name, me }}</div>
+    <div class="pub-venue"><em>{{ pub.venue }}</em>, {{ pub.year }}</div>
+    <div class="pub-links">
+      {% if pub.abstract %}<button type="button" class="btn abs-toggle" aria-expanded="false">abs</button>{% endif %}
+      {% for link in pub.links %}<a class="btn" href="{{ link[1] }}" target="_blank" rel="noopener">{{ link[0] }}</a>{% endfor %}
+    </div>
+    {% if pub.abstract %}<div class="pub-abstract" hidden><p>{{ pub.abstract }}</p></div>{% endif %}
+  </div>
+</li>

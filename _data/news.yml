@@ -1,0 +1,11 @@
+# News on the home page, newest first. `text` supports Markdown links.
+- date: Mar 2026
+  text: Joined the [Cyber-Physical Systems Group](https://www.ce.cit.tum.de/en/cps/) at TUM as a Ph.D. candidate with Prof. Matthias Althoff.
+- date: 2026
+  text: Our paper **TacUMI** was accepted at ICRA 2026.
+- date: Dec 2025
+  text: Completed my M.Sc. in Mechatronics and Robotics at TUM.
+- date: Jun 2025
+  text: Our work on multi-robot assembly of deformable linear objects, which I contributed to as a student research assistant, was accepted at IROS 2025.
+- date: Jan 2025
+  text: My semester thesis work **LEMMo-Plan** was accepted at ICRA 2025.

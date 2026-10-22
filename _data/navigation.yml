@@ -1,15 +1,9 @@
-# Links in the site header, in this order.
-# The home page (_pages/about.md) is always reachable by clicking the site title.
-
-main:
-  - title: "Publications"
-    url: /publications/
-
-  - title: "Projects"
-    url: /portfolio/
-
-  - title: "CV"
-    url: /cv/
-
-  - title: "Personal Interests"
-    url: /interests/
+# Links in the top menu, in this order.
+- title: about
+  url: /
+- title: publications
+  url: /publications/
+- title: cv
+  url: /cv/
+- title: personal interests
+  url: /interests/
