@@ -29,6 +29,10 @@ I supervise master's theses, semester theses, IDPs, and guided research projects
 
 **Alpine Climbing, Backpack Hiking, and Global Adventure Travel** ⛰️
 
+**Regularly**
+
+* 🥾 Mountaineering in **Tyrol** and the surrounding Alps
+
 **2026**
 
 * 🏔️ **Chamonix** — a week of mountaineering (June 2026)
