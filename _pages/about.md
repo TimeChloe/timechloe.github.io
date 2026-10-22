@@ -13,8 +13,6 @@ My research focuses on **safe physical human-robot interaction**, with interests
 
 Before starting my Ph.D., I completed my M.Sc. in **Mechatronics and Robotics** at TUM in December 2025. I wrote my master's thesis at the [Chair of Robotics, Artificial Intelligence and Real-Time Systems (AIR)](https://www.ce.cit.tum.de/en/air/) under the guidance of [Kejia Chen](https://www.ce.cit.tum.de/en/air/people/kejia-chen-msc/), supervised by [Prof. Dr.-Ing. Alois Knoll](https://www.professoren.tum.de/knoll-alois-christian) and [Prof. Dr. Sami Haddadin](https://mbzuai.ac.ae/study/faculty/sami-haddadin/). Earlier, I did my semester thesis and worked as a student research assistant at [KI.Fabrik](https://kifabrik.mirmi.tum.de/), part of the [Munich Institute of Robotics and Machine Intelligence (MIRMI)](https://www.mirmi.tum.de/), on multi-modal demonstrations, teleoperation, and the manipulation of deformable linear objects such as cables. I received my B.Eng. in Mechanical Engineering from [Shanghai Jiao Tong University (SJTU)](https://en.sjtu.edu.cn/) in 2020.
 
-You can find my CV here: [Yue's Curriculum Vitae](/files/2Yue_CV.pdf).
-
 ## Student Theses
 
 I supervise master's theses, semester theses, IDPs, and guided research projects. If you are interested in energy-aware control, compliant control, or safe physical human-robot interaction, please email me with a short introduction (your research interests, your strongest skills, and what excites you about robotics), together with your transcript and CV. Current topics are listed on my [group page](https://www.ce.cit.tum.de/en/cps/members/yue-zhang-msc/).
@@ -37,10 +35,5 @@ I supervise master's theses, semester theses, IDPs, and guided research projects
 * ❄️ **Icelandic Highlands** — backpacking (July 2025)
 * 🏞️ **Tour du Mont Blanc** — backpacking (August 2025)
 * 🧗‍♂️ **Chamonix Alpine Climbing Training**; Italy **multipitch training** (September 2025)
-
-**Next on my list**
-
-* 🇳🇵 **Nepal EBC (Everest Base Camp)** — backpacking
-* 🧊 **Ice Peak 6,189 m** — mountaineering
 
 I look forward to connecting with diverse partners for upcoming trips. If these adventures resonate with you, please get in touch. 📩

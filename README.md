@@ -11,11 +11,10 @@ Built with [Jekyll](https://jekyllrb.com/) on the [Academic Pages](https://githu
 | Name, sidebar bio, location, email, profile photo, social links | `_config.yml` (the `author:` block) |
 | Home page (About Me, News, Personal Interests) | `_pages/about.md` |
 | CV page | `_pages/cv.md` |
-| CV PDF linked from the home page | `files/2Yue_CV.pdf` |
 | Publications (one file per paper) | `_publications/` |
 | Projects (one file per project) | `_portfolio/` |
 | Menu at the top of the page | `_data/navigation.yml` |
-| Images and PDFs | `images/` and `files/` |
+| Images | `images/` (put any PDFs you want to link in `files/`) |
 
 Everything else (`_layouts/`, `_includes/`, `_sass/`, `assets/`) is the theme. You normally don't need to touch it.
 
@@ -49,8 +48,6 @@ For a journal paper, use `category: manuscripts` and uncomment the `manuscripts`
 **Add a project.** Copy a file in `_portfolio/`, change `title`, `excerpt` (the summary on the Projects page) and the body, and set `order:` to choose its position on the page.
 
 **Change the photo.** Put the new image in `images/` and set `avatar:` in `_config.yml`. Keep images small (under ~500 KB) so the site loads quickly.
-
-**Replace the CV PDF.** Overwrite `files/2Yue_CV.pdf` with the new file, keeping the same name.
 
 ## Preview locally
 
