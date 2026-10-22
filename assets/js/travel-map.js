@@ -14,6 +14,7 @@
     worldCopyJump: true,
     minZoom: 1,
     scrollWheelZoom: false,
+    fadeAnimation: false,
     // Keep the view between the poles, so no empty band shows above or below the map.
     maxBounds: [[-85, -540], [85, 540]],
     maxBoundsViscosity: 1
@@ -126,7 +127,14 @@
         }).addTo(map);
         var bounds = countryLayer.getBounds();
         if (markers.length) bounds.extend(L.featureGroup(markers).getBounds());
-        if (bounds.isValid()) map.fitBounds(bounds, { padding: [20, 20], maxZoom: 4, animate: false });
+        if (bounds.isValid()) {
+          // Ignore the far north and south (e.g. the top of Greenland) so the map is not zoomed out too far.
+          var fit = L.latLngBounds(
+            [Math.max(bounds.getSouth(), -50), bounds.getWest()],
+            [Math.min(bounds.getNorth(), 72), bounds.getEast()]
+          );
+          map.fitBounds(fit, { padding: [20, 20], maxZoom: 4, animate: false });
+        }
       })
       .catch(function () { /* the pins still work without the shading */ });
   }

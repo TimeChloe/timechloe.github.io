@@ -153,7 +153,6 @@ abbr.badge { text-decoration: none; cursor: default; }
 
 .leaflet-container { font: inherit; background: var(--bg); }
 .travel-map .leaflet-tile-pane { filter: grayscale(0.85) contrast(0.92) brightness(1.04); }
-.travel-map .leaflet-tile { width: 256.5px !important; height: 256.5px !important; } /* hides hairline gaps between tiles */
 [data-theme="dark"] .travel-map .leaflet-tile-pane { filter: grayscale(1) brightness(0.5) contrast(1.2); }
 .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--popup-bg); color: var(--text); }
 .leaflet-popup-content { margin: 12px 14px; line-height: 1.45; }
