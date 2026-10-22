@@ -9,5 +9,6 @@ layout: default
   <div class="post-content">
     {{ content }}
   </div>
-  <p><a href="{{ '/interests/' | relative_url }}">&larr; back to personal interests</a></p>
+  {% assign section = page.section | default: "travel" %}
+  <p><a href="{{ section | prepend: '/' | append: '/' | relative_url }}">&larr; back to {{ section }}</a></p>
 </article>

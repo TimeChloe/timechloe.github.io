@@ -1,0 +1,27 @@
+# Travel around the world. Shown on the "travel" page as pins on the map and as rows
+# in the list. Add new entries at the top. Same fields as _data/mountains.yml:
+#
+#   name, area, country, activity, date, year, status (visited / planned), emoji,
+#   lat, lng, insight, photos, log
+#
+# Every country in this file and in mountains.yml is shaded on the travel map
+# (planned trips are not counted). Countries you have lived in are in _data/countries.yml.
+
+- name: Iraq
+  country: Iraq
+  activity: upcoming trip
+  date: Nov 2026
+  year: 2026
+  status: planned
+  emoji: 🇮🇶
+  lat: 33.31
+  lng: 44.36
+
+- name: Desert Train Adventure
+  area: Mauritania
+  country: Mauritania
+  date: Jun 2025
+  year: 2025
+  emoji: 🏜️
+  lat: 21.30
+  lng: -13.05

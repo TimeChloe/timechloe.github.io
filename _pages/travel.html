@@ -1,0 +1,35 @@
+---
+layout: page
+title: travel
+permalink: /travel/
+description: Global adventure travel 🌍
+map: true
+---
+{% comment %}
+  Pins and the list come from _data/travel.yml. Shaded countries come from both
+  _data/travel.yml and _data/mountains.yml, plus the lived-in countries in _data/countries.yml.
+{% endcomment %}
+
+<p class="travel-stats" id="travel-stats"></p>
+
+<div id="trip-map" class="travel-map" role="region" aria-label="World map of the countries and places I have travelled to" data-shade-countries></div>
+<p class="map-legend">
+  <span class="swatch lived"></span>lived
+  <span class="swatch visited"></span>visited
+  <span class="dot visited"></span>trip
+  <span class="dot planned"></span>planned
+  &nbsp;·&nbsp; click a pin to see photos and notes
+</p>
+
+{% include trip-log.html trips=site.data.travel %}
+
+{% include trip-reports.html section="travel" %}
+
+<p class="trip-contact">I look forward to connecting with diverse partners for upcoming trips. If these adventures resonate with you, please <a href="mailto:{{ site.author.email }}">get in touch</a>. 📩</p>
+
+{% assign all_trips = site.data.travel | concat: site.data.mountains %}
+<script id="trip-data" type="application/json">{{ site.data.travel | jsonify }}</script>
+<script id="country-data" type="application/json">{"trips": {{ all_trips | jsonify }}, "lived": {{ site.data.countries.lived | jsonify }}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="{{ '/assets/js/travel-map.js' | relative_url }}"></script>

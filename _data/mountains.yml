@@ -1,0 +1,99 @@
+# Mountains: climbing, mountaineering and trekking. Shown on the "mountains" page
+# as pins on the map and as rows in the logbook. Add new entries at the top.
+#
+#   name:       peak, route, crag or trek (bold)
+#   area:       optional region / country, shown after the name
+#   country:    country name(s) in English, e.g. France or [France, Italy]; shaded on the travel map
+#   activity:   e.g. mountaineering, ice climbing, trad climbing, multipitch, trekking
+#   elevation:  optional, e.g. 6,189 m
+#   grade:      optional, e.g. PD+, WI4, 5.10a
+#   date:       shown in the first column, e.g. Jan 2026
+#   year:       logbook heading; use status: regular instead for places you go all the time
+#   status:     visited (default), regular, or planned (hollow pin)
+#   emoji:      optional
+#   lat, lng:   map position; right-click a spot in Google Maps to copy its coordinates
+#   insight:    optional, a few sentences shown when someone clicks the pin
+#   photos:     optional, e.g. [/images/mountains/liming-1.jpg, /images/mountains/liming-2.jpg]
+#   log:        optional link to a trip report in _travel/, e.g. /travel/liming/
+#
+# Entries with the same lat/lng share one pin on the map.
+
+- name: Tyrol and the surrounding Alps
+  area: Austria
+  country: Austria
+  activity: mountaineering
+  date: ongoing
+  status: regular
+  emoji: 🥾
+  lat: 47.2692
+  lng: 11.4041
+
+- name: Arctic Circle Trail
+  area: Greenland
+  country: Greenland
+  activity: trekking
+  date: Aug 2026
+  year: 2026
+  emoji: 🧊
+  lat: 66.98
+  lng: -52.10
+
+- name: Chamonix
+  area: France
+  country: France
+  activity: a week of mountaineering
+  date: Jun 2026
+  year: 2026
+  emoji: 🏔️
+  lat: 45.9237
+  lng: 6.8694
+
+- name: Liming
+  area: Yunnan, China
+  country: China
+  activity: trad climbing
+  date: Jan 2026
+  year: 2026
+  emoji: 🧗
+  lat: 27.03
+  lng: 99.68
+
+- name: Shuangqiao Valley
+  area: Sichuan, China
+  country: China
+  activity: ice climbing
+  date: Dec 2025
+  year: 2025
+  emoji: ⛏️
+  lat: 30.98
+  lng: 102.77
+
+- name: Chamonix
+  area: France
+  country: [France, Italy]
+  activity: alpine climbing training, plus multipitch training in Italy
+  date: Sep 2025
+  year: 2025
+  emoji: 🧗‍♂️
+  lat: 45.9237
+  lng: 6.8694
+
+- name: Tour du Mont Blanc
+  area: France, Italy and Switzerland
+  country: [France, Italy, Switzerland]
+  activity: trekking
+  date: Aug 2025
+  year: 2025
+  emoji: 🏞️
+  lat: 45.9237
+  lng: 6.8694
+
+- name: Icelandic Highlands
+  area: Iceland
+  country: Iceland
+  activity: trekking
+  date: Jul 2025
+  year: 2025
+  emoji: ❄️
+  lat: 63.99
+  lng: -19.06

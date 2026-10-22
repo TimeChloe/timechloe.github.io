@@ -134,14 +134,26 @@ abbr.badge { text-decoration: none; cursor: default; }
 .dot.visited { background: var(--theme); }
 .dot.regular { background: var(--regular); }
 .dot.planned { border: 2px dashed var(--theme); }
-.trip-list, .log-list { padding-left: 1.25rem; }
-.trip-list li, .log-list li { margin: 0.3rem 0; }
+.swatch { position: relative; display: inline-block; width: 16px; height: 11px; margin: 0 0.3rem 0 0.9rem; border: 1px solid var(--theme); border-radius: 2px; vertical-align: -1px; overflow: hidden; }
+.swatch:first-child { margin-left: 0; }
+.swatch::after { content: ""; position: absolute; inset: 0; background: var(--theme); }
+.swatch.lived::after { opacity: 0.45; }
+.swatch.visited::after { opacity: 0.2; }
+.travel-stats { color: var(--text-muted); margin: 0; }
+.log { width: 100%; border-collapse: collapse; }
+.log th { width: 20%; padding: 0.3rem 1rem 0.3rem 0; text-align: left; vertical-align: top; white-space: nowrap; }
+.log td { padding: 0.3rem 0; }
+.trip-extra { color: var(--text-muted); }
+.trip-extra::before { content: "· "; }
+.log-list { padding-left: 1.25rem; }
+.log-list li { margin: 0.3rem 0; }
 .log-date { margin-left: 0.5rem; color: var(--text-muted); font-size: 0.875rem; }
 .log-excerpt { color: var(--text-muted); font-size: 0.95rem; }
 .trip-contact { margin-top: 2rem; }
 
 .leaflet-container { font: inherit; background: var(--bg); }
 .travel-map .leaflet-tile-pane { filter: grayscale(0.85) contrast(0.92) brightness(1.04); }
+.travel-map .leaflet-tile { width: 256.5px !important; height: 256.5px !important; } /* hides hairline gaps between tiles */
 [data-theme="dark"] .travel-map .leaflet-tile-pane { filter: grayscale(1) brightness(0.5) contrast(1.2); }
 .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--popup-bg); color: var(--text); }
 .leaflet-popup-content { margin: 12px 14px; line-height: 1.45; }
@@ -174,6 +186,6 @@ abbr.badge { text-decoration: none; cursor: default; }
   .profile { float: none; width: 60%; margin: 0 auto 1.5rem; }
   .pub { flex-direction: column; gap: 0.5rem; }
   .pub-side { flex-basis: auto; max-width: 120px; }
-  .news th { width: auto; }
+  .news th, .log th { width: auto; }
   .travel-map { height: 320px; }
 }

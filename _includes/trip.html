@@ -1,1 +1,0 @@
-{% assign t = include.trip %}<li>{% if t.emoji %}{{ t.emoji }} {% endif %}<strong>{{ t.name }}</strong>{% if t.activity %} — {{ t.activity }}{% endif %}{% if t.date %} ({{ t.date }}){% endif %}{% if t.log %} · <a href="{{ t.log | relative_url }}">travel log</a>{% endif %}</li>

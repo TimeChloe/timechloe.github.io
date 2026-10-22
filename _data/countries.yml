@@ -1,0 +1,5 @@
+# Countries you have lived in, drawn in a darker shade on the travel map.
+# Use the English country name, e.g. "United States of America", "United Kingdom".
+lived:
+  - China
+  - Germany
