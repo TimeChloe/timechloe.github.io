@@ -1,0 +1,34 @@
+{% comment %}
+  Climbing logbook for the mountains page: one table with columns
+  date | peak / route | area | type | elevation | grade.
+  Places visited regularly come first, then one group per year, newest year first.
+{% endcomment %}
+{% assign regular = include.trips | where: "status", "regular" %}
+{% assign dated = include.trips | where_exp: "trip", "trip.status != 'regular'" %}
+{% assign years = dated | group_by: "year" | sort: "name" | reverse %}
+<div class="table-scroll">
+<table class="ascents">
+  <thead>
+    <tr>
+      <th scope="col">date</th>
+      <th scope="col">peak / route</th>
+      <th scope="col">area</th>
+      <th scope="col">type</th>
+      <th scope="col">elevation</th>
+      <th scope="col">grade</th>
+    </tr>
+  </thead>
+  {% if regular.size > 0 %}
+  <tbody>
+    <tr class="group"><th colspan="6" scope="rowgroup">regularly</th></tr>
+    {% for trip in regular %}{% include ascent-row.html trip=trip %}{% endfor %}
+  </tbody>
+  {% endif %}
+  {% for year in years %}
+  <tbody>
+    <tr class="group"><th colspan="6" scope="rowgroup">{{ year.name }}</th></tr>
+    {% for trip in year.items %}{% include ascent-row.html trip=trip %}{% endfor %}
+  </tbody>
+  {% endfor %}
+</table>
+</div>

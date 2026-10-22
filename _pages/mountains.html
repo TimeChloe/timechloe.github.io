@@ -8,7 +8,7 @@ redirect_from:
   - /interests/
 ---
 {% comment %}
-  The map and the logbook both come from _data/mountains.yml.
+  The map and the logbook table both come from _data/mountains.yml.
   Trip reports come from the files in _travel/ with `section: mountains`.
 {% endcomment %}
 
@@ -20,7 +20,8 @@ redirect_from:
   &nbsp;·&nbsp; click a pin to see photos and notes
 </p>
 
-{% include trip-log.html trips=site.data.mountains %}
+<h2>logbook</h2>
+{% include ascent-log.html trips=site.data.mountains %}
 
 {% include trip-reports.html section="mountains" %}
 

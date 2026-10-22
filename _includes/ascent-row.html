@@ -1,0 +1,9 @@
+{% assign t = include.trip %}
+<tr{% if t.status == "planned" %} class="planned"{% endif %}>
+  <td class="nowrap">{{ t.date }}</td>
+  <td>{% if t.emoji %}{{ t.emoji }} {% endif %}<strong>{{ t.name }}</strong>{% if t.log %} · <a href="{{ t.log | relative_url }}">report</a>{% endif %}</td>
+  <td>{{ t.area | default: "—" }}</td>
+  <td>{{ t.activity | default: "—" }}</td>
+  <td class="nowrap">{{ t.elevation | default: "—" }}</td>
+  <td class="nowrap">{{ t.grade | default: "—" }}</td>
+</tr>

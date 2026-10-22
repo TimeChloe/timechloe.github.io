@@ -1,12 +1,12 @@
 # Mountains: climbing, mountaineering and trekking. Shown on the "mountains" page
-# as pins on the map and as rows in the logbook. Add new entries at the top.
+# as pins on the map and as rows in the logbook table. Add new entries at the top.
 #
-#   name:       peak, route, crag or trek (bold)
-#   area:       optional region / country, shown after the name
+#   name:       peak, route, crag or trek (the "peak / route" column)
+#   area:       region / country (the "area" column)
 #   country:    country name(s) in English, e.g. France or [France, Italy]; shaded on the travel map
-#   activity:   e.g. mountaineering, ice climbing, trad climbing, multipitch, trekking
-#   elevation:  optional, e.g. 6,189 m
-#   grade:      optional, e.g. PD+, WI4, 5.10a
+#   activity:   the "type" column, e.g. mountaineering, ice climbing, trad climbing, multipitch, trekking
+#   elevation:  the "elevation" column, e.g. 6,189 m (left empty shows —)
+#   grade:      the "grade" column, e.g. PD+, AD, WI4, 5.10a, 6a (left empty shows —)
 #   date:       shown in the first column, e.g. Jan 2026
 #   year:       logbook heading; use status: regular instead for places you go all the time
 #   status:     visited (default), regular, or planned (hollow pin)
@@ -28,20 +28,10 @@
   lat: 47.2692
   lng: 11.4041
 
-- name: Arctic Circle Trail
-  area: Greenland
-  country: Greenland
-  activity: trekking
-  date: Aug 2026
-  year: 2026
-  emoji: 🧊
-  lat: 66.98
-  lng: -52.10
-
 - name: Chamonix
   area: France
   country: France
-  activity: a week of mountaineering
+  activity: mountaineering (one week)
   date: Jun 2026
   year: 2026
   emoji: 🏔️
@@ -68,10 +58,10 @@
   lat: 30.98
   lng: 102.77
 
-- name: Chamonix
-  area: France
+- name: Chamonix and Italy
+  area: France, Italy
   country: [France, Italy]
-  activity: alpine climbing training, plus multipitch training in Italy
+  activity: alpine climbing and multipitch training
   date: Sep 2025
   year: 2025
   emoji: 🧗‍♂️
@@ -79,7 +69,7 @@
   lng: 6.8694
 
 - name: Tour du Mont Blanc
-  area: France, Italy and Switzerland
+  area: France, Italy, Switzerland
   country: [France, Italy, Switzerland]
   activity: trekking
   date: Aug 2025
@@ -87,13 +77,3 @@
   emoji: 🏞️
   lat: 45.9237
   lng: 6.8694
-
-- name: Icelandic Highlands
-  area: Iceland
-  country: Iceland
-  activity: trekking
-  date: Jul 2025
-  year: 2025
-  emoji: ❄️
-  lat: 63.99
-  lng: -19.06

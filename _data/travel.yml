@@ -17,6 +17,26 @@
   lat: 33.31
   lng: 44.36
 
+- name: Arctic Circle Trail
+  area: Greenland
+  country: Greenland
+  activity: backpacking
+  date: Aug 2026
+  year: 2026
+  emoji: 🧊
+  lat: 66.98
+  lng: -52.10
+
+- name: Icelandic Highlands
+  area: Iceland
+  country: Iceland
+  activity: backpacking
+  date: Jul 2025
+  year: 2025
+  emoji: ❄️
+  lat: 63.99
+  lng: -19.06
+
 - name: Desert Train Adventure
   area: Mauritania
   country: Mauritania
