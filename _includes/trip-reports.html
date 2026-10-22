@@ -1,0 +1,22 @@
+{% comment %}
+  Trip reports from _travel/ whose `section` matches include.section
+  (reports without a section count as "travel").
+{% endcomment %}
+{% assign reports = "" | split: "" %}
+{% for report in site.travel %}
+  {% assign report_section = report.section | default: "travel" %}
+  {% if report_section == include.section %}{% assign reports = reports | push: report %}{% endif %}
+{% endfor %}
+{% assign reports = reports | sort: "date" | reverse %}
+{% if reports.size > 0 %}
+<h2>trip reports</h2>
+<ul class="log-list">
+  {% for report in reports %}
+  <li>
+    <a href="{{ report.url | relative_url }}">{{ report.title }}</a>
+    <span class="log-date">{{ report.date | date: "%B %Y" }}</span>
+    {% if report.excerpt %}<div class="log-excerpt">{{ report.excerpt | strip_html | truncatewords: 40 }}</div>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

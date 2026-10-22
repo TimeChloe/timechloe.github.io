@@ -1,0 +1,20 @@
+{% comment %}
+  Logbook for a list of trips (include.trips): places visited regularly first,
+  then one table per year, newest year first. Rows keep the order of the data file.
+{% endcomment %}
+{% assign regular = include.trips | where: "status", "regular" %}
+{% if regular.size > 0 %}
+<h2>regularly</h2>
+<table class="log">
+  <tbody>{% for trip in regular %}{% include trip-row.html trip=trip %}{% endfor %}</tbody>
+</table>
+{% endif %}
+
+{% assign dated = include.trips | where_exp: "trip", "trip.status != 'regular'" %}
+{% assign years = dated | group_by: "year" | sort: "name" | reverse %}
+{% for year in years %}
+<h2>{{ year.name }}</h2>
+<table class="log">
+  <tbody>{% for trip in year.items %}{% include trip-row.html trip=trip %}{% endfor %}</tbody>
+</table>
+{% endfor %}

@@ -1,89 +1,106 @@
-# Academic Pages
-**Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
+# timechloe.github.io
 
-![Academic Pages template example](images/homepage.png "Academic Pages template example")
+Source of Yue Zhang's personal website: <https://timechloe.github.io>
 
-# Getting Started
+A small, hand-written [Jekyll](https://jekyllrb.com/) site in the style of the [al-folio](https://github.com/alshedivat/al-folio) theme. GitHub Pages rebuilds and publishes it automatically whenever the `master` branch changes.
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+## Where things live
 
-See more info at https://academicpages.github.io/
+| What you want to change | File |
+| --- | --- |
+| Name, email, photo, Google Scholar / GitHub / LinkedIn links | `_config.yml` (the `author:` block) |
+| About text on the home page | `_pages/about.md` |
+| Papers (home page and publications page) | `_data/publications.yml` |
+| News on the home page | `_data/news.yml` |
+| Climbing, mountaineering and trekking (mountains page) | `_data/mountains.yml` |
+| Trips around the world (travel page) | `_data/travel.yml` |
+| Countries you have lived in (darker on the travel map) | `_data/countries.yml` |
+| Trip reports (one file per trip) | `_travel/` |
+| CV | `files/cv.pdf` (see below) |
+| Top menu | `_data/navigation.yml` |
+| Photos and images | `images/` |
+| Colours, fonts, spacing | `assets/css/main.css` |
 
-## Running locally
+The page templates are in `_layouts/` and `_includes/`. You normally don't need to touch them.
 
-When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
+## Common edits
 
-1. Clone the repository and made updates as detailed above.
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distribution and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    If you see error `Unable to locate package ruby-bundler`, `Unable to locate package nodejs `, run the following:
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-    then try run `sudo apt install ruby-dev ruby-bundler nodejs` again.
+**Add a news item.** Add an entry at the top of `_data/news.yml`:
 
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
+```yaml
+- date: Nov 2026
+  text: Gave a talk at [Some Workshop](https://example.com).
+```
 
-    If you see file permission error like `Fetching bundler-2.6.3.gem ERROR:  While executing gem (Gem::FilePermissionError) You don't have write permissions for the /var/lib/gems/3.2.0 directory.` or `Bundler::PermissionError: There was an error while trying to write to /usr/local/bin.`
-    Install Gems Locally (Recommended):
-    ```bash
-    bundle config set --local path 'vendor/bundle'
-    ```
-    then try run `bundle install` again. If succeeded, you should see a folder called `vendor` and open `.gitignore` then add `vendor` inside it.
+**Add a paper.** Add an entry at the top of `_data/publications.yml`. The comment at the top of that file lists every field. Set `selected: true` to also show it on the home page, and add `image: /images/publications/my-paper.jpg` for a preview picture next to the badge.
 
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
-    You may also try `bundle exec jekyll serve -l -H localhost` to ensure jekyll to use specific dependencies on your own local machine.
+**Upload your CV.** Save the PDF as `files/cv.pdf`. The cv page then shows it with a download button. Until the file exists, the page says the CV is coming soon.
 
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
+**Add a climb or a trip.** Climbing, mountaineering and trekking go at the top of `_data/mountains.yml`; other travel goes at the top of `_data/travel.yml`. Both files use the same fields (the comment at the top of `mountains.yml` lists them all):
 
-## Using Docker
+```yaml
+- name: Shuangqiao Valley
+  area: Sichuan, China
+  country: China              # or a list: [France, Italy]
+  activity: ice climbing
+  elevation:                  # optional, e.g. 4,810 m
+  grade:                      # optional, e.g. WI4 or 5.10a
+  date: Dec 2025
+  year: 2025                  # heading in the logbook
+  emoji: ⛏️
+  lat: 30.98                  # right-click a spot in Google Maps to copy its coordinates
+  lng: 102.77
+  insight: A few sentences about the trip, shown when someone clicks the pin.
+  photos: [/images/mountains/shuangqiao-1.jpg, /images/mountains/shuangqiao-2.jpg]
+  log: /travel/shuangqiao-ice/   # optional, link to a trip report
+```
 
-Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
+Each entry becomes a pin on that page's map (clicking it shows the date, insight and photos) and a row in the logbook below it. Use `status: regular` (instead of `year`) for places you go all the time, and `status: planned` for an upcoming trip, which is drawn as a hollow pin. Entries with the same coordinates share one pin.
 
-You can build and execute the container by running the following command in the repository:
+The travel map also shades every `country` from both files, plus the countries in `_data/countries.yml`, and counts them at the top of the page. Country names must be in English as on the map, e.g. `United States of America`, `United Kingdom`, `South Korea`.
+
+Put photos in `images/mountains/` or `images/travel/` and keep each one under ~500 KB (resize to about 1200 px wide) so the pages load quickly.
+
+**Write a trip report.** Create a file in `_travel/`, for example `_travel/shuangqiao-ice.md`:
+
+```markdown
+---
+title: "Ice climbing in Shuangqiao Valley"
+date: 2025-12-20
+place: Sichuan, China
+section: mountains     # mountains or travel: which page lists it
+---
+
+The first paragraph is the summary shown in the list.
+
+Write the rest of the story here, with photos:
+![First pitch](/images/mountains/shuangqiao-3.jpg)
+```
+
+It appears under "trip reports" on the mountains or travel page and gets its own page at `/travel/shuangqiao-ice/`. Link it from the map by setting `log: /travel/shuangqiao-ice/` on the entry. A report dated in the future stays hidden until that date.
+
+## Preview locally
+
+You need Docker (already installed on this laptop). From the repository folder:
 
 ```bash
 docker compose up
 ```
 
-You should now be able to access the website from `localhost:4000`.
+Then open <http://localhost:4000>. Pages rebuild when you save a file; refresh the browser to see the change. After editing `_config.yml`, stop the server with `Ctrl+C` and start it again. The first run builds the Docker image, which takes a few minutes.
 
-# Maintenance
+## Publish
 
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
+Commit and push to `master`; GitHub Pages rebuilds the live site within a minute or two.
 
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
+```bash
+git add -A
+git commit -m "Describe what you changed"
+git push
+```
 
-## Bugfixes and enhancements
+You can watch the build under the repository's **Actions** tab on GitHub. If it fails, the error names the file and line to fix (most often a YAML indentation mistake in `_data/`).
 
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
+## Credits
 
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
-
----
-<div align="center">
-    
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/academicpages/academicpages.github.io.svg)](https://github.com/academicpages/academicpages.github.io/graphs/contributors)
-[![GitHub release](https://img.shields.io/github/v/release/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/academicpages/academicpages.github.io?color=blue)](https://github.com/academicpages/academicpages.github.io/blob/master/LICENSE)
-
-[![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
-[![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
-</div>
+Design inspired by [al-folio](https://github.com/alshedivat/al-folio). Map by [Leaflet](https://leafletjs.com/) with [OpenStreetMap](https://www.openstreetmap.org/copyright) tiles.

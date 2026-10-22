@@ -1,0 +1,32 @@
+---
+layout: page
+title: mountains
+permalink: /mountains/
+description: Alpine climbing and backpack hiking ⛰️
+map: true
+redirect_from:
+  - /interests/
+---
+{% comment %}
+  The map and the logbook table both come from _data/mountains.yml.
+  Trip reports come from the files in _travel/ with `section: mountains`.
+{% endcomment %}
+
+<div id="trip-map" class="travel-map" role="region" aria-label="Map of the mountains I have climbed and hiked"></div>
+<p class="map-legend">
+  <span class="dot visited"></span>been there
+  <span class="dot regular"></span>regularly
+  <span class="dot planned"></span>planned
+  &nbsp;·&nbsp; click a pin to see photos and notes
+</p>
+
+<h2>logbook</h2>
+{% include ascent-log.html trips=site.data.mountains %}
+
+{% include trip-reports.html section="mountains" %}
+
+<p class="trip-contact">I look forward to connecting with diverse partners for upcoming trips. If these adventures resonate with you, please <a href="mailto:{{ site.author.email }}">get in touch</a>. 📩</p>
+
+<script id="trip-data" type="application/json">{{ site.data.mountains | jsonify }}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="{{ '/assets/js/travel-map.js' | relative_url }}"></script>
