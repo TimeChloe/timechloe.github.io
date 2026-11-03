@@ -1,6 +1,6 @@
 # timechloe.github.io
 
-Source of Yue Zhang's personal website: <https://timechloe.github.io>
+Source of Yue Zhang's personal website: <https://yuezhang.dev>
 
 A small, hand-written [Jekyll](https://jekyllrb.com/) site in the style of the [al-folio](https://github.com/alshedivat/al-folio) theme. GitHub Pages rebuilds and publishes it automatically whenever the `master` branch changes.
 
