@@ -65,6 +65,10 @@
     - name: Arête des Cosmiques
       area: Aiguille du Midi, Chamonix
       elevation: 3,842 m
+    - name: Aiguille d'Entrèves
+      area: Mont Blanc massif
+      elevation: 3,604 m
+      grade: AD-
 
 - name: Liming
   area: Yunnan, China
