@@ -40,6 +40,11 @@
     var html = '<div class="trip-popup"><strong>' + escapeHtml(title) + '</strong>';
     var meta = [trip.activity, trip.elevation, trip.grade, trip.date].filter(Boolean).map(escapeHtml).join(' · ');
     if (meta) html += '<div class="trip-meta">' + meta + '</div>';
+    if (trip.routes && trip.routes.length) {
+      html += '<div class="trip-routes">Routes: ' + trip.routes.map(function (r) {
+        return escapeHtml(r.name);
+      }).join(' · ') + '</div>';
+    }
     if (trip.insight) html += '<p>' + escapeHtml(trip.insight) + '</p>';
     if (trip.photos && trip.photos.length) {
       html += '<div class="trip-photos">' + trip.photos.map(function (src) {
@@ -51,9 +56,23 @@
     return html + '</div>';
   }
 
+  // Routes with their own coordinates (the `routes:` list in mountains.yml) get their own pin.
+  var routePins = [];
+  trips.forEach(function (trip) {
+    (trip.routes || []).forEach(function (r) {
+      if (typeof r.lat !== 'number' || typeof r.lng !== 'number') return;
+      routePins.push({
+        name: r.name, area: r.area || trip.name, activity: trip.activity,
+        elevation: r.elevation, grade: r.grade,
+        date: r.date || (trip.status === 'regular' ? '' : trip.date),
+        status: trip.status, lat: r.lat, lng: r.lng, insight: r.insight, photos: r.photos
+      });
+    });
+  });
+
   // Pins: trips at the same coordinates share one pin.
   var groups = {};
-  trips.forEach(function (trip) {
+  trips.concat(routePins).forEach(function (trip) {
     if (typeof trip.lat !== 'number' || typeof trip.lng !== 'number') return;
     var key = trip.lat + ',' + trip.lng;
     (groups[key] = groups[key] || []).push(trip);
