@@ -72,6 +72,12 @@ img { max-width: 100%; }
 main { padding-top: 3rem; padding-bottom: 2rem; }
 .post-title { font-size: 2.5rem; font-weight: 300; line-height: 1.2; margin: 0 0 0.5rem; }
 .post-description { margin: 0 0 1rem; }
+.page-notice {
+  margin: 0 0 1.25rem; padding: 0.55rem 0.9rem;
+  border-left: 3px solid var(--regular); border-radius: 2px;
+  background: color-mix(in srgb, var(--regular) 9%, transparent);
+  font-size: 0.95rem;
+}
 h2 { clear: both; font-size: 2rem; font-weight: 300; line-height: 1.2; margin: 2.5rem 0 0.75rem; }
 h3 { font-size: 1.25rem; font-weight: 400; }
 
@@ -86,13 +92,15 @@ h3 { font-size: 1.25rem; font-weight: 400; }
 .bibliography { list-style: none; margin: 0; padding: 0; }
 .pub { display: flex; gap: 1.5rem; padding: 0.75rem 0 1.5rem; }
 .pub-side { flex: 0 0 16%; max-width: 16%; }
+.pub-side.has-preview { flex-basis: 26%; max-width: 26%; }
 .badge {
   display: block; margin-bottom: 8px; padding: 3px 5px;
   background: var(--theme); color: #fff; border-radius: 4px;
   font-size: 12px; font-weight: 700; line-height: 1.2; text-align: center;
 }
 abbr.badge { text-decoration: none; cursor: default; }
-.preview { display: block; width: 100%; border-radius: 4px; box-shadow: 0 2px 5px var(--shadow); }
+.preview { display: block; width: 100%; border-radius: 4px; box-shadow: 0 2px 5px var(--shadow); background: #fff; transition: box-shadow 0.2s; }
+.preview-link:hover .preview { box-shadow: 0 3px 12px var(--shadow); }
 .pub-body { flex: 1; min-width: 0; }
 .pub-title { font-weight: 400; }
 .pub-authors em { font-style: normal; border-bottom: 1px solid currentColor; }
@@ -156,6 +164,13 @@ abbr.badge { text-decoration: none; cursor: default; }
   text-align: left; font-size: 1.25rem; font-weight: 300;
 }
 .ascents tr.planned td { color: var(--text-muted); }
+.ascent-area { color: var(--text-muted); font-size: 0.875rem; }
+.ascent-extra { color: var(--text-muted); font-size: 0.875rem; white-space: nowrap; }
+.ascent-extra::before { content: " · "; }
+.ascent-none { color: var(--text-muted); }
+.routes { list-style: none; margin: 0; padding: 0; }
+.routes li + li { margin-top: 0.15rem; }
+.trip-routes { margin-top: 0.3rem; font-size: 0.875rem; }
 .nowrap { white-space: nowrap; }
 .trip-extra { color: var(--text-muted); }
 .trip-extra::before { content: "· "; }
@@ -198,7 +213,9 @@ abbr.badge { text-decoration: none; cursor: default; }
   h2 { font-size: 1.75rem; }
   .profile { float: none; width: 60%; margin: 0 auto 1.5rem; }
   .pub { flex-direction: column; gap: 0.5rem; }
-  .pub-side { flex-basis: auto; max-width: 120px; }
+  .pub-side, .pub-side.has-preview { flex-basis: auto; max-width: 120px; }
+  .pub-side.has-preview { max-width: 360px; }
+  .pub-side.has-preview .badge { display: inline-block; min-width: 72px; padding: 3px 12px; }
   .news th, .log th { width: auto; }
   .travel-map { height: 320px; }
 }
