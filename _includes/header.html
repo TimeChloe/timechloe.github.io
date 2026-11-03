@@ -1,0 +1,23 @@
+<header class="site-header">
+  <nav class="container nav" aria-label="Main">
+    {% if page.url == "/" %}<span></span>{% else %}<a class="nav-name" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>{% endif %}
+    {% comment %}Trip reports (_travel/) belong to the mountains or travel page, depending on their section.{% endcomment %}
+    {% if page.collection == "travel" %}
+      {% assign current = page.section | default: "travel" | prepend: "/" | append: "/" %}
+    {% else %}
+      {% assign current = page.url %}
+    {% endif %}
+    <ul class="nav-links">
+      {% for item in site.data.navigation %}
+        {% assign active = false %}
+        {% if item.url == "/" %}
+          {% if current == "/" %}{% assign active = true %}{% endif %}
+        {% elsif current contains item.url %}
+          {% assign active = true %}
+        {% endif %}
+        <li><a href="{{ item.url | relative_url }}"{% if active %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
+      {% endfor %}
+      <li><button class="theme-toggle" type="button" aria-label="Switch between light and dark mode"><i class="fas fa-moon" aria-hidden="true"></i></button></li>
+    </ul>
+  </nav>
+</header>

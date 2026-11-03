@@ -1,0 +1,9 @@
+{% assign t = include.trip %}
+<tr>
+  <th scope="row">{{ t.date }}</th>
+  <td>
+    {% if t.emoji %}{{ t.emoji }} {% endif %}<strong>{{ t.name }}</strong>{% if t.area %}, {{ t.area }}{% endif %}{% if t.activity %} — {{ t.activity }}{% endif %}
+    {% if t.elevation or t.grade %}<span class="trip-extra">{% if t.elevation %}{{ t.elevation }}{% endif %}{% if t.elevation and t.grade %} · {% endif %}{% if t.grade %}{{ t.grade }}{% endif %}</span>{% endif %}
+    {% if t.log %}· <a href="{{ t.log | relative_url }}">trip report</a>{% endif %}
+  </td>
+</tr>

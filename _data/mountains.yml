@@ -1,0 +1,111 @@
+# Mountains: climbing, mountaineering and trekking. Shown on the "mountains" page
+# as pins on the map and as rows in the logbook table. Add new entries at the top.
+#
+#   name:       the area, crag, peak or trek (bold in the "area" column)
+#   area:       region / country (shown under the name)
+#   country:    country name(s) in English, e.g. France or [France, Italy]; shaded on the travel map
+#   activity:   the "type" column, e.g. mountaineering, ice climbing, trad climbing, multipitch, trekking
+#   elevation:  optional, e.g. 6,189 m (shown next to the name)
+#   grade:      optional, e.g. PD+, AD, WI4, 5.10a, 6a (shown next to the name)
+#   routes:     optional list of routes or peaks done in this area (the "routes" column). Each route has
+#               a name and, optionally, area, elevation, grade, date and lat/lng (lat/lng adds its own pin):
+#                 routes:
+#                   - name: Ortler via the Hintergrat
+#                     area: South Tyrol, Italy
+#                     elevation: 3,905 m
+#                     grade: AD
+#                     lat: 46.509
+#                     lng: 10.545
+#   date:       shown in the first column, e.g. Jan 2026
+#   year:       logbook heading; use status: regular instead for places you go all the time
+#   status:     visited (default), regular, or planned (hollow pin)
+#   emoji:      optional
+#   lat, lng:   map position; right-click a spot in Google Maps to copy its coordinates
+#   insight:    optional, a few sentences shown when someone clicks the pin
+#   photos:     optional, e.g. [/images/mountains/liming-1.jpg, /images/mountains/liming-2.jpg]
+#   log:        optional link to a trip report in _travel/, e.g. /travel/liming/
+#
+# Entries with the same lat/lng share one pin on the map.
+
+- name: Tyrol and the surrounding Alps
+  area: Austria, Italy
+  country: [Austria, Italy]
+  activity: mountaineering
+  date: ongoing
+  status: regular
+  emoji: 🥾
+  lat: 47.2692
+  lng: 11.4041
+  routes:
+    - name: Ortler via the Hintergrat
+      area: South Tyrol, Italy
+      elevation: 3,905 m
+      lat: 46.509
+      lng: 10.545
+    - name: Cima Tosa
+      area: Brenta Dolomites, Italy
+      elevation: 3,173 m
+      lat: 46.155
+      lng: 10.875
+    - name: Taschachhaus glacier
+      area: Pitztal, Austria
+      lat: 46.903
+      lng: 10.855
+
+- name: Chamonix
+  area: France
+  country: France
+  activity: mountaineering (one week)
+  date: Jun 2026
+  year: 2026
+  emoji: 🏔️
+  lat: 45.9237
+  lng: 6.8694
+  routes:
+    - name: Arête des Cosmiques
+      area: Aiguille du Midi, Chamonix
+      elevation: 3,842 m
+    - name: Aiguille d'Entrèves
+      area: Mont Blanc massif
+      elevation: 3,604 m
+      grade: AD-
+
+- name: Liming
+  area: Yunnan, China
+  country: China
+  activity: trad climbing
+  date: Jan 2026
+  year: 2026
+  emoji: 🧗
+  lat: 27.03
+  lng: 99.68
+
+- name: Shuangqiao Valley
+  area: Western Sichuan, China
+  country: China
+  activity: ice climbing
+  date: Dec 2025
+  year: 2025
+  emoji: ⛏️
+  lat: 30.98
+  lng: 102.77
+
+- name: Chamonix and Italy
+  area: France, Italy
+  country: [France, Italy]
+  activity: alpine climbing and multipitch training
+  date: Sep 2025
+  year: 2025
+  emoji: 🧗‍♂️
+  lat: 45.9237
+  lng: 6.8694
+
+- name: Tour du Mont Blanc
+  area: France, Italy, Switzerland
+  country: [France, Italy, Switzerland]
+  activity: trekking
+  date: Aug 2025
+  year: 2025
+  emoji: 🏞️
+  lat: 45.9237
+  lng: 6.8694

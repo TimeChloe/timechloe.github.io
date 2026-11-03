@@ -1,36 +1,19 @@
 ---
-layout: archive
-title: "Publications"
+layout: page
+title: publications
 permalink: /publications/
-author_profile: true
+redirect_from:
+  - /publication/ICRA2025
+  - /publication/IROS2025
 ---
-
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+<p>The full list is also on my <a href="{{ site.author.googlescholar }}" rel="noopener">Google Scholar profile</a>.</p>
 {% endif %}
 
-{% include base_path %}
-
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
-
-
-
+{% assign years = site.data.publications | group_by: "year" | sort: "name" | reverse %}
+{% for year in years %}
+<h2 class="year">{{ year.name }}</h2>
+<ol class="bibliography">
+  {% for pub in year.items %}{% include publication.html pub=pub %}{% endfor %}
+</ol>
+{% endfor %}

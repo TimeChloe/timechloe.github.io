@@ -1,0 +1,20 @@
+---
+layout: page
+title: cv
+permalink: /cv/
+redirect_from:
+  - /resume
+---
+{% comment %}
+  To publish your CV, save the PDF as files/cv.pdf (the path is set by cv_pdf in _config.yml).
+  This page then shows it automatically; until then it shows the note below.
+{% endcomment %}
+{% assign cv_file = site.static_files | where: "path", site.cv_pdf | first %}
+{% if cv_file %}
+<p><a class="btn" href="{{ site.cv_pdf | relative_url }}" target="_blank" rel="noopener"><i class="fas fa-file-pdf" aria-hidden="true"></i>&nbsp; download pdf</a></p>
+<object class="cv-embed" data="{{ site.cv_pdf | relative_url }}" type="application/pdf">
+  <p>Your browser cannot show the PDF here. <a href="{{ site.cv_pdf | relative_url }}">Download my CV</a> instead.</p>
+</object>
+{% else %}
+<p>My CV will be available here soon. In the meantime, see my <a href="{{ '/publications/' | relative_url }}">publications</a>{% if site.author.linkedin %} or my <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" rel="noopener">LinkedIn profile</a>{% endif %}.</p>
+{% endif %}

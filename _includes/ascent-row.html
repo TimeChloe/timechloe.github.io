@@ -1,0 +1,19 @@
+{% assign t = include.trip %}
+<tr{% if t.status == "planned" %} class="planned"{% endif %}>
+  <td class="nowrap">{{ t.date }}</td>
+  <td>
+    {% if t.emoji %}{{ t.emoji }} {% endif %}<strong>{{ t.name }}</strong>{% if t.log %} · <a href="{{ t.log | relative_url }}">report</a>{% endif %}
+    {% if t.elevation or t.grade %}<span class="ascent-extra">{{ t.elevation }}{% if t.elevation and t.grade %} · {% endif %}{{ t.grade }}</span>{% endif %}
+    {% if t.area %}<div class="ascent-area">{{ t.area }}</div>{% endif %}
+  </td>
+  <td>
+    {% if t.routes and t.routes.size > 0 %}
+    <ul class="routes">
+      {% for r in t.routes %}
+      <li>{{ r.name }}{% if r.area %} <span class="ascent-area">({{ r.area }})</span>{% endif %}{% if r.elevation or r.grade or r.date %}<span class="ascent-extra">{% if r.elevation %}{{ r.elevation }}{% endif %}{% if r.elevation and r.grade %} · {% endif %}{% if r.grade %}{{ r.grade }}{% endif %}{% if r.date %}{% if r.elevation or r.grade %} · {% endif %}{{ r.date }}{% endif %}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+    {% else %}<span class="ascent-none">—</span>{% endif %}
+  </td>
+  <td>{{ t.activity | default: "—" }}</td>
+</tr>

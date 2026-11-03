@@ -1,0 +1,45 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ site.author.name }}</h1>
+    <p class="post-description">latest update: {{ site.time | date: "%B, %Y" }}</p>
+  </header>
+
+  <div class="profile">
+    <img src="{{ site.author.photo | relative_url }}" alt="Photo of {{ site.author.name }}">
+    <ul class="contact">
+      {% if site.author.email %}<li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>{% endif %}
+      {% if site.author.googlescholar %}<li><i class="ai ai-google-scholar" aria-hidden="true"></i><a href="{{ site.author.googlescholar }}" rel="noopener">Google Scholar</a></li>{% endif %}
+      {% if site.author.github %}<li><i class="fab fa-github" aria-hidden="true"></i><a href="https://github.com/{{ site.author.github }}" rel="noopener">{{ site.author.github }}</a></li>{% endif %}
+      {% if site.author.linkedin %}<li><i class="fab fa-linkedin" aria-hidden="true"></i><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" rel="noopener">LinkedIn</a></li>{% endif %}
+    </ul>
+  </div>
+
+  <div class="post-content bio">
+    {{ content }}
+  </div>
+
+  {% assign selected = site.data.publications | where: "selected", true %}
+  {% if selected.size > 0 %}
+  <h2>papers</h2>
+  <ol class="bibliography">
+    {% for pub in selected %}{% include publication.html pub=pub %}{% endfor %}
+  </ol>
+  {% endif %}
+
+  {% if site.data.news.size > 0 %}
+  <h2>news</h2>
+  <table class="news">
+    <tbody>
+      {% for item in site.data.news %}
+      <tr>
+        <th scope="row">{{ item.date }}</th>
+        <td>{{ item.text | markdownify | remove: "<p>" | remove: "</p>" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+</article>
