@@ -2,9 +2,9 @@
 {% assign pub = include.pub %}
 {% capture me %}<em>{{ site.scholar_name }}</em>{% endcapture %}
 <li class="pub">
-  <div class="pub-side">
+  <div class="pub-side{% if pub.image %} has-preview{% endif %}">
     {% if pub.abbr %}<abbr class="badge" title="{{ pub.venue }}">{{ pub.abbr }}</abbr>{% endif %}
-    {% if pub.image %}<img class="preview" src="{{ pub.image | relative_url }}" alt="" loading="lazy">{% endif %}
+    {% if pub.image %}<a class="preview-link" href="{{ pub.image | relative_url }}" target="_blank" rel="noopener" title="Open the full figure"><img class="preview" src="{{ pub.image | relative_url }}" alt="Figure from {{ pub.title | escape }}" loading="lazy"></a>{% endif %}
   </div>
   <div class="pub-body">
     <div class="pub-title">{{ pub.title }}</div>

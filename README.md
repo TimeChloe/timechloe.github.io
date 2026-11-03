@@ -32,7 +32,7 @@ The page templates are in `_layouts/` and `_includes/`. You normally don't need 
   text: Gave a talk at [Some Workshop](https://example.com).
 ```
 
-**Add a paper.** Add an entry at the top of `_data/publications.yml`. The comment at the top of that file lists every field. Set `selected: true` to also show it on the home page, and add `image: /images/publications/my-paper.jpg` for a preview picture next to the badge.
+**Add a paper.** Add an entry at the top of `_data/publications.yml`. The comment at the top of that file lists every field. Set `selected: true` to also show it on the home page, and add `image: /images/publications/my-paper.jpg` for the figure shown before the paper (a key figure from the paper, about 960 px wide; visitors can click it to see it full size).
 
 **Upload your CV.** Save the PDF as `files/cv.pdf`. The cv page then shows it with a download button. Until the file exists, the page says the CV is coming soon.
 
@@ -43,8 +43,6 @@ The page templates are in `_layouts/` and `_includes/`. You normally don't need 
   area: Sichuan, China
   country: China              # or a list: [France, Italy]
   activity: ice climbing
-  elevation:                  # optional, e.g. 4,810 m
-  grade:                      # optional, e.g. WI4 or 5.10a
   date: Dec 2025
   year: 2025                  # heading in the logbook
   emoji: ⛏️
@@ -53,9 +51,16 @@ The page templates are in `_layouts/` and `_includes/`. You normally don't need 
   insight: A few sentences about the trip, shown when someone clicks the pin.
   photos: [/images/mountains/shuangqiao-1.jpg, /images/mountains/shuangqiao-2.jpg]
   log: /travel/shuangqiao-ice/   # optional, link to a trip report
+  routes:                     # optional, routes or peaks in this area (the "routes" column)
+    - name: Ortler via the Hintergrat
+      area: South Tyrol, Italy
+      elevation: 3,905 m      # optional
+      grade: AD               # optional
+      lat: 46.509             # optional, gives the route its own pin
+      lng: 10.545
 ```
 
-Each entry becomes a pin on that page's map (clicking it shows the date, insight and photos) and a row in the logbook below it. Use `status: regular` (instead of `year`) for places you go all the time, and `status: planned` for an upcoming trip, which is drawn as a hollow pin. Entries with the same coordinates share one pin.
+Each entry becomes a pin on that page's map (clicking it shows the date, insight and photos) and a row in the logbook below it. An entry can be a whole area (e.g. "Tyrol and the surrounding Alps") with its routes listed under `routes:`, or a single climb. Use `status: regular` (instead of `year`) for places you go all the time, and `status: planned` for an upcoming trip, which is drawn as a hollow pin. Entries with the same coordinates share one pin.
 
 The travel map also shades every `country` from both files, plus the countries in `_data/countries.yml`, and counts them at the top of the page. Country names must be in English as on the map, e.g. `United States of America`, `United Kingdom`, `South Korea`.
 
@@ -78,6 +83,8 @@ Write the rest of the story here, with photos:
 ```
 
 It appears under "trip reports" on the mountains or travel page and gets its own page at `/travel/shuangqiao-ice/`. Link it from the map by setting `log: /travel/shuangqiao-ice/` on the entry. A report dated in the future stays hidden until that date.
+
+**Show or hide the "Yue is working hard on updating this page" banner.** It is the `notice:` line at the top of `_pages/travel.html` and `_pages/mountains.html`. Change the text there, or delete the line to hide the banner.
 
 ## Preview locally
 
