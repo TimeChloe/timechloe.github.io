@@ -10,18 +10,34 @@ map: true
 {% comment %}
   Pins and the list come from _data/travel.yml. Shaded countries come from both
   _data/travel.yml and _data/mountains.yml, plus the lived-in countries in _data/countries.yml.
+  The "play" view is a little game (assets/js/travel-game.js) built from the same data:
+  every country there becomes a passport stamp, and `insight`, `photos` and `log` show on its card.
 {% endcomment %}
 
 <p class="travel-stats" id="travel-stats"></p>
 
-<div id="trip-map" class="travel-map" role="region" aria-label="World map of the countries and places I have travelled to" data-shade-countries></div>
-<p class="map-legend">
-  <span class="swatch lived"></span>lived
-  <span class="swatch visited"></span>visited
-  <span class="dot visited"></span>trip
-  <span class="dot planned"></span>planned
-  &nbsp;·&nbsp; click a pin to see photos and notes
-</p>
+<div class="view-switch" data-view-switch="travel" role="group" aria-label="Choose a view">
+  <button type="button" data-view="game" aria-pressed="true">🎮 play</button>
+  <button type="button" data-view="map" aria-pressed="false">🗺️ map</button>
+</div>
+
+<div data-view-panel="game">
+  <div id="world-game" class="pixel-game world" tabindex="0" role="application" aria-label="Passport Quest: a pixel world map game. Use the arrow keys or click to walk; the map view and the list below show the same trips.">
+    <canvas aria-hidden="true"></canvas>
+    <p class="pg-loading">Loading the game… (needs JavaScript)</p>
+  </div>
+</div>
+
+<div data-view-panel="map" hidden>
+  <div id="trip-map" class="travel-map" role="region" aria-label="World map of the countries and places I have travelled to" data-shade-countries></div>
+  <p class="map-legend">
+    <span class="swatch lived"></span>lived
+    <span class="swatch visited"></span>visited
+    <span class="dot visited"></span>trip
+    <span class="dot planned"></span>planned
+    &nbsp;·&nbsp; click a pin to see photos and notes
+  </p>
+</div>
 
 {% include trip-log.html trips=site.data.travel %}
 
@@ -32,6 +48,10 @@ map: true
 {% assign all_trips = site.data.travel | concat: site.data.mountains %}
 <script id="trip-data" type="application/json">{{ site.data.travel | jsonify }}</script>
 <script id="country-data" type="application/json">{"trips": {{ all_trips | jsonify }}, "lived": {{ site.data.countries.lived | jsonify }}}</script>
+<script id="travel-game-data" type="application/json">{"travel": {{ site.data.travel | jsonify }}, "mountains": {{ site.data.mountains | jsonify }}, "lived": {{ site.data.countries.lived | jsonify }}, "home": {{ site.data.countries.home | jsonify }}}</script>
+<script src="{{ '/assets/js/pixel-kit.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/world-grid.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/travel-game.js' | relative_url }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script src="{{ '/assets/js/travel-map.js' | relative_url }}"></script>

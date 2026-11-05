@@ -3,3 +3,9 @@
 lived:
   - China
   - Germany
+
+# Where the explorer starts in the travel game ("play" view on the travel page).
+home:
+  name: Munich
+  lat: 48.14
+  lng: 11.58

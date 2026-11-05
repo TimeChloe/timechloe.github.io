@@ -14,7 +14,7 @@ A small, hand-written [Jekyll](https://jekyllrb.com/) site in the style of the [
 | News on the home page | `_data/news.yml` |
 | Climbing, mountaineering and trekking (mountains page) | `_data/mountains.yml` |
 | Trips around the world (travel page) | `_data/travel.yml` |
-| Countries you have lived in (darker on the travel map) | `_data/countries.yml` |
+| Countries you have lived in (darker on the travel map), and where the travel game starts | `_data/countries.yml` |
 | Trip reports (one file per trip) | `_travel/` |
 | CV | `files/cv.pdf` (see below) |
 | Top menu | `_data/navigation.yml` |
@@ -84,6 +84,13 @@ Write the rest of the story here, with photos:
 
 It appears under "trip reports" on the mountains or travel page and gets its own page at `/travel/shuangqiao-ice/`. Link it from the map by setting `log: /travel/shuangqiao-ice/` on the entry. A report dated in the future stays hidden until that date.
 
+**The games on the travel and mountains pages.** Both pages open on a little pixel game (the "play" button), with the classic map one click away (the "map" button; each visitor's choice is remembered). The games read the same data files, so there is nothing extra to edit:
+
+- *Passport Quest* (travel): every country in `travel.yml`, `mountains.yml` and `countries.yml` (`lived:`) is a passport stamp. The explorer starts at `home:` in `countries.yml`. Walking into a country lights it up and opens its card with the trips there, including their `insight`, `photos` and `log`. Planned trips show up as "coming soon".
+- *Summit Quest* (mountains): every route under `routes:` (or the entry itself when it has no routes) is one camp on the mountain, ordered from easy at the bottom to hard at the top. The order comes from `grade` (alpine F, PD, AD, D, TD, ED with + or -; ice WI3; rock 6a or 5.10a); climbs without a grade are placed by their `activity` (trekking lowest, then glacier, mountaineering, alpine climbing and multipitch, trad, ice) and their `elevation`. Add a `grade` to move a climb to its right place. Reaching a camp opens its logbook card.
+
+Progress is saved in each visitor's own browser. The pixel world map is `assets/js/world-grid.js`, made once by `_tools/make-world-grid.js`; there is no need to run it again.
+
 **Show or hide the "Yue is working hard on updating this page" banner.** It is the `notice:` line at the top of `_pages/travel.html` and `_pages/mountains.html`. Change the text there, or delete the line to hide the banner.
 
 ## Preview locally
@@ -110,4 +117,4 @@ You can watch the build under the repository's **Actions** tab on GitHub. If it 
 
 ## Credits
 
-Design inspired by [al-folio](https://github.com/alshedivat/al-folio). Map by [Leaflet](https://leafletjs.com/) with [OpenStreetMap](https://www.openstreetmap.org/copyright) tiles.
+Design inspired by [al-folio](https://github.com/alshedivat/al-folio). Map by [Leaflet](https://leafletjs.com/) with [OpenStreetMap](https://www.openstreetmap.org/copyright) tiles. The pixel world map in the travel game is drawn from [Natural Earth](https://www.naturalearthdata.com/) data (public domain) via [world-atlas](https://github.com/topojson/world-atlas).
