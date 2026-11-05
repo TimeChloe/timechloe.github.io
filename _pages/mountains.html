@@ -12,15 +12,32 @@ redirect_from:
 {% comment %}
   The map and the logbook table both come from _data/mountains.yml.
   Trip reports come from the files in _travel/ with `section: mountains`.
+  The "play" view is a little climbing game (assets/js/climb-game.js) built from the same data:
+  every route (or area without routes) is one camp, ordered by `grade`, and its card shows
+  `insight`, `photos` and `log`.
 {% endcomment %}
 
-<div id="trip-map" class="travel-map" role="region" aria-label="Map of the mountains I have climbed and hiked"></div>
-<p class="map-legend">
-  <span class="dot visited"></span>been there
-  <span class="dot regular"></span>regularly
-  <span class="dot planned"></span>planned
-  &nbsp;·&nbsp; click a pin to see photos and notes
-</p>
+<div class="view-switch" data-view-switch="mountains" role="group" aria-label="Choose a view">
+  <button type="button" data-view="game" aria-pressed="true">🎮 play</button>
+  <button type="button" data-view="map" aria-pressed="false">🗺️ map</button>
+</div>
+
+<div data-view-panel="game">
+  <div id="climb-game" class="pixel-game climb" tabindex="0" role="application" aria-label="Summit Quest: a climbing game where each camp is one of my climbs. Press Space to climb; the logbook below lists the same climbs.">
+    <canvas aria-hidden="true"></canvas>
+    <p class="pg-loading">Loading the game… (needs JavaScript)</p>
+  </div>
+</div>
+
+<div data-view-panel="map" hidden>
+  <div id="trip-map" class="travel-map" role="region" aria-label="Map of the mountains I have climbed and hiked"></div>
+  <p class="map-legend">
+    <span class="dot visited"></span>been there
+    <span class="dot regular"></span>regularly
+    <span class="dot planned"></span>planned
+    &nbsp;·&nbsp; click a pin to see photos and notes
+  </p>
+</div>
 
 <h2>logbook</h2>
 {% include ascent-log.html trips=site.data.mountains %}
@@ -30,5 +47,8 @@ redirect_from:
 <p class="trip-contact">I look forward to connecting with diverse partners for upcoming trips. If these adventures resonate with you, please <a href="mailto:{{ site.author.email }}">get in touch</a>. 📩</p>
 
 <script id="trip-data" type="application/json">{{ site.data.mountains | jsonify }}</script>
+<script id="climb-game-data" type="application/json">{{ site.data.mountains | jsonify }}</script>
+<script src="{{ '/assets/js/pixel-kit.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/climb-game.js' | relative_url }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="{{ '/assets/js/travel-map.js' | relative_url }}"></script>
